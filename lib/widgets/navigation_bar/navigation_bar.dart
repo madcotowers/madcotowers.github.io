@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class NavigationBar extends StatelessWidget {
   const NavigationBar({Key key}) : super(key: key);
@@ -7,19 +8,23 @@ class NavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100,
-      child: Row(children: <Widget>[
-        SizedBox(
-            height: 80,
-            width: 150,
-            child: Image.asset('assets//mazda-mx5-miata-1995.png')),
-        Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          _NavBarItem('Episodes'),
-          SizedBox(
-            width: 60,
-          ),
-          _NavBarItem('About'),
-        ])
-      ]),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(
+                height: 134,
+                width: 300,
+                child: Image.asset(
+                    'assets/MCHS-Identity-WHiteText-340-300x134.png')),
+            Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+              _NavBarItem('Townships'),
+              SizedBox(
+                width: 60,
+              ),
+              _NavBarItem('Contact Us'),
+            ])
+          ]),
+      color: Colors.red[900],
     );
   }
 }
