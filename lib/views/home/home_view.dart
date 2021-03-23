@@ -73,9 +73,10 @@ class HomeView extends StatelessWidget {
             ),
           ),
           TownshipCarousel(),
+          /*
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.35,
-          )
+          )*/
         ],
       ),
     );

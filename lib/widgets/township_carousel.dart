@@ -6,13 +6,13 @@ class TownshipCarousel extends StatelessWidget {
   final List<String> townships = [
     'Alton',
     'Edwardsville',
-    'TW3',
-    'TW4',
-    'TW5',
-    'TW6',
-    'TW7',
-    'TW8',
-    'TW9'
+    'Township 3',
+    'Township 4',
+    'Township 5',
+    'Township 6',
+    'Township 7',
+    'Township 8',
+    'Township 9',
   ];
 
   @override
@@ -21,11 +21,12 @@ class TownshipCarousel extends StatelessWidget {
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.35,
         child: ListView.builder(
-            scrollDirection: Axis.horizontal,
+            scrollDirection: Axis.vertical,
             itemCount: townships.length,
             itemBuilder: (BuildContext ctxt, int index) {
               return Container(
                 width: MediaQuery.of(context).size.width * 0.6,
+                height: MediaQuery.of(context).size.width * 0.2,
                 child: Card(
                   color: Colors.red,
                   child: Container(
