@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:madcotowers_1/widgets/navigation_bar/course_details/course_details.dart';
 import 'package:madcotowers_1/widgets/township_carousel.dart';
 //import 'package:madcotowers_1/townshipMenu.dart';
 //import 'package:madcotowers_1/widgets/navigation_bar/centered_view/centered_view.dart';
@@ -53,8 +54,28 @@ class HomeView extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Welcome, Visitor",
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontWeight: FontWeight.w800, height: 0.9, fontSize: 80),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "What would you like to learn about today?",
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontWeight: FontWeight.w500, height: 0.9, fontSize: 50),
+            ),
+          ),
           TownshipCarousel(),
-          TownshipCarousel(),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.35,
+          )
         ],
       ),
     );

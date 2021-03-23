@@ -17,18 +17,13 @@ class TownshipCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      /*
-      appBar: AppBar(
-        title: Text('Horizontal ListView'),
-      ),*/
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+    var expanded = Expanded(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.35,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: townships.length,
-            itemBuilder: (context, index) {
+            itemBuilder: (BuildContext ctxt, int index) {
               return Container(
                 width: MediaQuery.of(context).size.width * 0.6,
                 child: Card(
@@ -45,5 +40,6 @@ class TownshipCarousel extends StatelessWidget {
             }),
       ),
     );
+    return expanded;
   }
 }
