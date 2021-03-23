@@ -8,7 +8,17 @@ import 'package:madcotowers_1/widgets/township_carousel.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key key}) : super(key: key);
-
+  static const List<String> townships = [
+    'Alton',
+    'Edwardsville',
+    'TW3',
+    'TW4',
+    'TW5',
+    'TW6',
+    'TW7',
+    'TW8',
+    'TW9'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +35,28 @@ class HomeView extends StatelessWidget {
 
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Madison County Historical Society'),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset(
+              'assets/MCHS-Identity-WHiteText-340-300x134.png',
+              fit: BoxFit.contain,
+              height: 60,
+            ),
+            Text('MADCOTOWERS'),
+            /*
+            Container(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Hello, Visitor'))*/
+          ],
+        ),
       ),
-      body: Scaffold(body: TownshipCarousel()),
+      body: Column(
+        children: <Widget>[
+          TownshipCarousel(),
+          TownshipCarousel(),
+        ],
+      ),
     );
   }
 }
