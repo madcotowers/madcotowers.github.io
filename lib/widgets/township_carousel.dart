@@ -27,16 +27,20 @@ class TownshipCarousel extends StatelessWidget {
               return Container(
                 width: MediaQuery.of(context).size.width * 0.6,
                 height: MediaQuery.of(context).size.width * 0.2,
-                child: Card(
-                  color: Colors.red,
-                  child: Container(
-                    child: Center(
-                        child: Text(
-                      townships[index].toString(),
-                      style: TextStyle(color: Colors.white, fontSize: 36.0),
+                child: GestureDetector(
+                    onTap: () {
+                      print(townships[index].toString() + " clicked");
+                    },
+                    child: Card(
+                      color: Colors.red,
+                      child: Container(
+                        child: Center(
+                            child: Text(
+                          townships[index].toString(),
+                          style: TextStyle(color: Colors.white, fontSize: 36.0),
+                        )),
+                      ),
                     )),
-                  ),
-                ),
               );
             }),
       ),
