@@ -42,13 +42,14 @@ class TownshipMenu extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    township,
+                    township, //display the township in bold text above the chapter carousel
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         fontWeight: FontWeight.w500, height: 0.9, fontSize: 50),
                   ),
                 ),
                 Expanded(
+                  //the expanded widget fills the available space and contains the carousel
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.35,
                     child: ListView.builder(
