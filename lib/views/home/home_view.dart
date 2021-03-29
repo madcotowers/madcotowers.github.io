@@ -30,7 +30,7 @@ class HomeView extends StatelessWidget {
               context,
               new MaterialPageRoute(
                   builder: (context) =>
-                      townshipMenu())); //navigates to township menu page, awaits result, then stores the destination
+                      TownshipMenu())); //navigates to township menu page, awaits result, then stores the destination
         },
       ),*/
 
@@ -73,10 +73,6 @@ class HomeView extends StatelessWidget {
             ),
           ),
           TownshipCarousel(),
-          /*
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.35,
-          )*/
         ],
       ),
     );

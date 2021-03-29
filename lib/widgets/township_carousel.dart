@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:madcotowers_1/views/TownshipMenu/townshipMenu.dart';
 
 class TownshipCarousel extends StatelessWidget {
   final List<String> townships = [
@@ -28,8 +29,13 @@ class TownshipCarousel extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.6,
                 height: MediaQuery.of(context).size.width * 0.2,
                 child: GestureDetector(
-                    onTap: () {
-                      print(townships[index].toString() + " clicked");
+                    onTap: () async {
+                      var pageNavigatedTo = await Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => TownshipMenu(
+                                    township: townships[index],
+                                  ))); //navigates to township menu page, awaits result, then stores the destination
                     },
                     child: Card(
                       color: Colors.red,
