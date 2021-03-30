@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   final customColor =
       CustomMaterialColor().createMaterialColor(Color(0xFF8b0d04));
   // This widget is the root of your application.
-
+  //throwaway comment
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
