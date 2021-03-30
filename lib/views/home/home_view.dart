@@ -46,7 +46,7 @@ class HomeView extends StatelessWidget {
               fit: BoxFit.contain,
               height: 60,
             ),
-            Text('MADCOTOWERS'),
+            //Text('MADCOTOWERS'),
             /*
             Container(
                 padding: const EdgeInsets.all(8.0),
