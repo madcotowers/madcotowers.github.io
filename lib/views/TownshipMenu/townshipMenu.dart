@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:madcotowers_1/mediaPlayer.dart';
 import 'package:madcotowers_1/CustomMaterialColor.dart';
-//import 'package:madcotowers_1/views/home/home_view.dart';
 
 class TownshipMenu extends StatelessWidget {
   final customColor =

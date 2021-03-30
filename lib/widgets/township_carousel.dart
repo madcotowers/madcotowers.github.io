@@ -1,6 +1,4 @@
 import 'dart:html';
-
-//import 'package:madcotowers_1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:madcotowers_1/views/TownshipMenu/townshipMenu.dart';
 import 'package:madcotowers_1/CustomMaterialColor.dart';
