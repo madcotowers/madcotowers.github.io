@@ -1,9 +1,13 @@
 import 'dart:html';
 
+//import 'package:madcotowers_1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:madcotowers_1/views/TownshipMenu/townshipMenu.dart';
+import 'package:madcotowers_1/CustomMaterialColor.dart';
 
 class TownshipCarousel extends StatelessWidget {
+  final customColor =
+      CustomMaterialColor().createMaterialColor(Color(0xFF8b0d04));
   final List<String> townships = [
     'Alton',
     'Edwardsville',
@@ -38,7 +42,7 @@ class TownshipCarousel extends StatelessWidget {
                                   ))); //navigates to township menu page, awaits result, then stores the destination
                     },
                     child: Card(
-                      color: Colors.red,
+                      color: customColor,
                       child: Container(
                         child: Center(
                             child: Text(

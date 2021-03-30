@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-//import 'package:madcotowers_1/mediaPlayer.dart';
+import 'package:madcotowers_1/mediaPlayer.dart';
+import 'package:madcotowers_1/CustomMaterialColor.dart';
 //import 'package:madcotowers_1/views/home/home_view.dart';
 
 class TownshipMenu extends StatelessWidget {
+  final customColor =
+      CustomMaterialColor().createMaterialColor(Color(0xFF8b0d04));
   final String township;
   final List<String> chapters = [
     'Chapter 1',
@@ -61,20 +64,17 @@ class TownshipMenu extends StatelessWidget {
                             height: MediaQuery.of(context).size.width * 0.2,
                             child: GestureDetector(
                                 onTap: () {
-                                  /*
-                                  () {
-                                      Navigator.push(
-                                          context,
-                                          new MaterialPageRoute(
-                                              builder: (context) =>
-                                                  mediaPlayer())); // navigate back, pass in navigation boolean
-                                    },  
-                                  */
-                                  print(
-                                      chapters[index].toString() + " clicked");
+                                  Navigator.push(
+                                      context,
+                                      new MaterialPageRoute(
+                                          builder: (context) => MediaPlayer(
+                                                township: township,
+                                              )));
+                                  print(chapters[index].toString() +
+                                      " clicked"); // navigate back, pass in navigation boolean
                                 },
                                 child: Card(
-                                  color: Colors.red,
+                                  color: customColor,
                                   child: Container(
                                     child: Center(
                                         child: Text(

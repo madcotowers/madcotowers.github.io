@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:madcotowers_1/widgets/navigation_bar/course_details/course_details.dart';
 import 'package:madcotowers_1/widgets/township_carousel.dart';
+import 'package:madcotowers_1/CustomMaterialColor.dart';
+//import 'package:madcotowers_1/widgets/navigation_bar/course_details/course_details.dart';
+
 //import 'package:madcotowers_1/townshipMenu.dart';
 //import 'package:madcotowers_1/widgets/navigation_bar/centered_view/centered_view.dart';
 //import 'package:madcotowers_1/widgets/navigation_bar/course_details/course_details.dart';

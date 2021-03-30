@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:madcotowers_1/views/home/home_view.dart';
+import 'package:madcotowers_1/CustomMaterialColor.dart';
+//import 'package:madcotowers_1/views/home/home_view.dart';
 
-class mediaPlayer extends StatelessWidget {
+class MediaPlayer extends StatelessWidget {
+  final String township;
+
+  MediaPlayer({Key key, @required this.township}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -18,6 +22,7 @@ class mediaPlayer extends StatelessWidget {
                   }),
               title: Text('Media Player'),
             ),
+            //add media player here
             floatingActionButton: FloatingActionButton(
               onPressed: () {
                 Navigator.pop(
