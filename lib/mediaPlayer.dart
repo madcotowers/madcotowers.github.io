@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:madcotowers_1/CustomMaterialColor.dart';
-//import 'package:madcotowers_1/views/home/home_view.dart';
 
 class MediaPlayer extends StatelessWidget {
   final String chapter;

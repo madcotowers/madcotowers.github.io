@@ -1,0 +1,363 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/ink_decoration.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__madcotowers_1__widgets__township_carousel_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__ink_decoration$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__strut_style$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
+  const ink_decoration = packages__flutter__src__material__ink_decoration$46dart.src__material__ink_decoration;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  var township_carousel = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $toString = dartx.toString;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    JSArrayOfStringL: () => (T.JSArrayOfStringL = dart.constFn(_interceptors.JSArray$(T.StringL())))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    ContainerL: () => (T.ContainerL = dart.constFn(dart.legacy(container.Container)))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    BuildContextLAndintLToContainerL: () => (T.BuildContextLAndintLToContainerL = dart.constFn(dart.fnType(T.ContainerL(), [T.BuildContextL(), T.intL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 25,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 25,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 25,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///C:/Users/Sean/Documents/SIUE/CS499/madcotowers_1/lib/widgets/township_carousel.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 40,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/Sean/Documents/SIUE/CS499/madcotowers_1/lib/widgets/township_carousel.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11], T._LocationL());
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///C:/Users/Sean/Documents/SIUE/CS499/madcotowers_1/lib/widgets/township_carousel.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 32,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 32,
+        [_Location_file]: "file:///C:/Users/Sean/Documents/SIUE/CS499/madcotowers_1/lib/widgets/township_carousel.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17], T._LocationL());
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Users/Sean/Documents/SIUE/CS499/madcotowers_1/lib/widgets/township_carousel.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20], T._LocationL());
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 27,
+        [_Location_file]: "file:///C:/Users/Sean/Documents/SIUE/CS499/madcotowers_1/lib/widgets/township_carousel.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "scrollDirection",
+        [_Location_column]: 13,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 13,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 13,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], T._LocationL());
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///C:/Users/Sean/Documents/SIUE/CS499/madcotowers_1/lib/widgets/township_carousel.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29], T._LocationL());
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 21,
+        [_Location_file]: "file:///C:/Users/Sean/Documents/SIUE/CS499/madcotowers_1/lib/widgets/township_carousel.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32], T._LocationL());
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 20,
+        [_Location_file]: "file:///C:/Users/Sean/Documents/SIUE/CS499/madcotowers_1/lib/widgets/township_carousel.dart"
+      });
+    }
+  }, false);
+  var C = Array(33).fill(void 0);
+  var I = ["package:madcotowers_1/widgets/township_carousel.dart"];
+  var townships = dart.privateName(township_carousel, "TownshipCarousel.townships");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  township_carousel.TownshipCarousel = class TownshipCarousel extends framework.StatelessWidget {
+    get townships() {
+      return this[townships];
+    }
+    set townships(value) {
+      super.townships = value;
+    }
+    build(context) {
+      let expanded = new basic.Expanded.new({child: new basic.SizedBox.new({height: dart.notNull(media_query.MediaQuery.of(context).size.height) * 0.35, child: new scroll_view.ListView.builder({scrollDirection: basic_types.Axis.vertical, itemCount: this.townships[$length], itemBuilder: dart.fn((ctxt, index) => new container.Container.new({child: new ink_well.InkWell.new({child: new basic.Stack.new({children: T.JSArrayOfWidgetL().of([new ink_decoration.Ink.new({height: dart.notNull(media_query.MediaQuery.of(context).size.height) * 0.2, width: dart.notNull(media_query.MediaQuery.of(context).size.width) * 0.6, color: colors.Colors.red, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), new basic.Center.new({child: new text.Text.new(dart.toString(this.townships[$_get](index)), {style: new text_style.TextStyle.new({color: colors.Colors.white, fontSize: 36.0}), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9})]), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18}), T.BuildContextLAndintLToContainerL()), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30});
+      return expanded;
+    }
+  };
+  (township_carousel.TownshipCarousel.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[townships] = T.JSArrayOfStringL().of(["Alton", "Edwardsville", "Township 3", "Township 4", "Township 5", "Township 6", "Township 7", "Township 8", "Township 9"]);
+    township_carousel.TownshipCarousel.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = township_carousel.TownshipCarousel.prototype;
+  dart.addTypeTests(township_carousel.TownshipCarousel);
+  dart.addTypeCaches(township_carousel.TownshipCarousel);
+  dart.setMethodSignature(township_carousel.TownshipCarousel, () => ({
+    __proto__: dart.getMethods(township_carousel.TownshipCarousel.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(township_carousel.TownshipCarousel, I[0]);
+  dart.setFieldSignature(township_carousel.TownshipCarousel, () => ({
+    __proto__: dart.getFields(township_carousel.TownshipCarousel.__proto__),
+    townships: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(core.String))))
+  }));
+  dart.trackLibraries("packages/madcotowers_1/widgets/township_carousel.dart", {
+    "package:madcotowers_1/widgets/township_carousel.dart": township_carousel
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["township_carousel.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAKqB;;;;;;UAaO;AACpB,qBAAW,+BACN,gCACsC,aAAxB,AAAY,AAAK,0BAAd,OAAO,iBAAgB,aAC7B,mDACU,sCACX,AAAU,sCACR,SAAc,MAAU,UAC5B,oCAGE,iCAEE,+BAAwB,yBAC7B,oCAC+C,aAAxB,AAAY,AAAK,0BAAd,OAAO,iBAAgB,YACJ,aAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe,YAC7B,4EAClB,6BACW,kBACQ,cAAjB,AAAS,sBAAC,KAAK,YACR,qCAAwB,+BAAiB;AAelE,YAAO,SAAQ;IACjB;;;;IAlDmB,kBAAY,yBAC7B,SACA,gBACA,cACA,cACA,cACA,cACA,cACA,cACA;;;EA0CJ","file":"../../../../../../../../packages/madcotowers_1/widgets/township_carousel.dart.lib.js"}');
+  // Exports:
+  return {
+    widgets__township_carousel: township_carousel
+  };
+}));
+
+//# sourceMappingURL=township_carousel.dart.lib.js.map
