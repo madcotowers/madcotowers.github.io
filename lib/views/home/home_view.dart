@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:madcotowers_1/widgets/contact_drawer.dart';
 import 'package:madcotowers_1/widgets/township_carousel.dart';
+//import 'package:http/http.dart' as http;
+//import 'dart:convert';
 //import 'package:madcotowers_1/CustomMaterialColor.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({Key key}) : super(key: key);
+
   static const List<String> townships = [
     'Alton',
     'Edwardsville',
@@ -15,20 +19,19 @@ class HomeView extends StatelessWidget {
     'TW8',
     'TW9'
   ];
+
+  @override
+  _HomeViewState createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  bool showBottomMenu = false;
+  var showThreshold = 10;
+
   @override
   Widget build(BuildContext context) {
+    //getData();
     return Scaffold(
-      /*
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          var pageNavigatedTo = await Navigator.push(
-              context,
-              new MaterialPageRoute(
-                  builder: (context) =>
-                      TownshipMenu())); //navigates to township menu page, awaits result, then stores the destination
-        },
-      ),*/
-
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Row(
@@ -47,28 +50,53 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "Welcome, Visitor",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontWeight: FontWeight.w800, height: 0.9, fontSize: 80),
+      body: GestureDetector(
+        onPanEnd: (details) {
+          if (details.velocity.pixelsPerSecond.dy > showThreshold) {
+            this.setState(() {
+              showBottomMenu = false;
+            });
+          } else if (details.velocity.pixelsPerSecond.dy < -showThreshold) {
+            this.setState(() {
+              showBottomMenu = true;
+            });
+          }
+        },
+        child: Stack(
+          children: [
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Welcome, Visitor",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800, height: 0.9, fontSize: 80),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "What would you like to learn about today?",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500, height: 0.9, fontSize: 50),
+                  ),
+                ),
+                TownshipCarousel(),
+              ],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "What would you like to learn about today?",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontWeight: FontWeight.w500, height: 0.9, fontSize: 50),
-            ),
-          ),
-          TownshipCarousel(),
-        ],
+            AnimatedPositioned(
+                curve: Curves.easeInOut,
+                duration: Duration(milliseconds: 200),
+                left: 0,
+                bottom: (showBottomMenu)
+                    ? 0
+                    : -(MediaQuery.of(context).size.height / 3),
+                child: ContactDrawer())
+          ],
+        ),
       ),
     );
   }
