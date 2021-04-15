@@ -1,17 +1,79 @@
-define(['dart_sdk', 'packages/flutter/src/painting/colors.dart'], (function load__packages__flutter__src__material__colors_dart(dart_sdk, packages__flutter__src__painting__colors$46dart) {
+define(['dart_sdk', 'packages/http/src/byte_stream.dart', 'packages/http/src/utils.dart', 'packages/http/src/boundary_characters.dart', 'packages/http_parser/src/media_type.dart', 'packages/pedantic/pedantic.dart', 'packages/http/src/exception.dart'], (function load__packages__http__src__multipart_request_dart(dart_sdk, packages__http__src__byte_stream$46dart, packages__http__src__utils$46dart, packages__http__src__boundary_characters$46dart, packages__http_parser__src__media_type$46dart, packages__pedantic__pedantic$46dart, packages__http__src__exception$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
+  const _js_helper = dart_sdk._js_helper;
+  const _interceptors = dart_sdk._interceptors;
+  const convert = dart_sdk.convert;
+  const async = dart_sdk.async;
+  const collection = dart_sdk.collection;
+  const math = dart_sdk.math;
+  const html = dart_sdk.html;
+  const typed_data = dart_sdk.typed_data;
+  const _native_typed_data = dart_sdk._native_typed_data;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const colors = packages__flutter__src__painting__colors$46dart.src__painting__colors;
-  var colors$ = Object.create(dart.library);
+  const byte_stream = packages__http__src__byte_stream$46dart.src__byte_stream;
+  const utils = packages__http__src__utils$46dart.src__utils;
+  const boundary_characters = packages__http__src__boundary_characters$46dart.src__boundary_characters;
+  const media_type = packages__http_parser__src__media_type$46dart.src__media_type;
+  const pedantic = packages__pedantic__pedantic$46dart.pedantic;
+  const exception = packages__http__src__exception$46dart.src__exception;
+  var multipart_request = Object.create(dart.library);
+  var multipart_file_stub = Object.create(dart.library);
+  var multipart_file = Object.create(dart.library);
+  var streamed_request = Object.create(dart.library);
+  var browser_client = Object.create(dart.library);
+  var response$ = Object.create(dart.library);
+  var request$ = Object.create(dart.library);
+  var streamed_response = Object.create(dart.library);
+  var base_response = Object.create(dart.library);
+  var base_request = Object.create(dart.library);
+  var base_client = Object.create(dart.library);
+  var client$ = Object.create(dart.library);
+  var http = Object.create(dart.library);
+  var $length = dartx.length;
+  var $forEach = dartx.forEach;
+  var $_set = dartx._set;
+  var $entries = dartx.entries;
+  var $replaceAll = dartx.replaceAll;
+  var $_get = dartx._get;
+  var $toLowerCase = dartx.toLowerCase;
+  var $hashCode = dartx.hashCode;
+  var $onLoad = dartx.onLoad;
+  var $response = dartx.response;
+  var $asUint8List = dartx.asUint8List;
+  var $responseHeaders = dartx.responseHeaders;
+  var $onError = dartx.onError;
+  var $addAll = dartx.addAll;
+  var $cast = dartx.cast;
+  var $containsKey = dartx.containsKey;
+  var $remove = dartx.remove;
   dart._checkModuleNullSafetyMode(false);
   var T = {
+    IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
+    JSArrayOfMultipartFile: () => (T.JSArrayOfMultipartFile = dart.constFn(_interceptors.JSArray$(multipart_file.MultipartFile)))(),
+    StringAndStringTovoid: () => (T.StringAndStringTovoid = dart.constFn(dart.fnType(dart.void, [core.String, core.String])))(),
     intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
-    ColorL: () => (T.ColorL = dart.constFn(dart.legacy(ui.Color)))(),
-    MaterialColorL: () => (T.MaterialColorL = dart.constFn(dart.legacy(colors$.MaterialColor)))(),
-    MaterialAccentColorL: () => (T.MaterialAccentColorL = dart.constFn(dart.legacy(colors$.MaterialAccentColor)))()
+    ListOfint: () => (T.ListOfint = dart.constFn(core.List$(core.int)))(),
+    _AsyncStarImplOfListOfint: () => (T._AsyncStarImplOfListOfint = dart.constFn(async._AsyncStarImpl$(T.ListOfint())))(),
+    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
+    LinkedHashMapOfString$String: () => (T.LinkedHashMapOfString$String = dart.constFn(collection.LinkedHashMap$(core.String, core.String)))(),
+    StringAndStringTobool: () => (T.StringAndStringTobool = dart.constFn(dart.fnType(core.bool, [core.String, core.String])))(),
+    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
+    ListOfintL: () => (T.ListOfintL = dart.constFn(core.List$(T.intL())))(),
+    ListLOfintL: () => (T.ListLOfintL = dart.constFn(dart.legacy(T.ListOfintL())))(),
+    _EmptyStreamOfListLOfintL: () => (T._EmptyStreamOfListLOfintL = dart.constFn(async._EmptyStream$(T.ListLOfintL())))(),
+    StreamControllerOfListOfint: () => (T.StreamControllerOfListOfint = dart.constFn(async.StreamController$(T.ListOfint())))(),
+    LinkedHashSetOfHttpRequest: () => (T.LinkedHashSetOfHttpRequest = dart.constFn(collection.LinkedHashSet$(html.HttpRequest)))(),
+    CompleterOfStreamedResponse: () => (T.CompleterOfStreamedResponse = dart.constFn(async.Completer$(streamed_response.StreamedResponse)))(),
+    ProgressEventToNull: () => (T.ProgressEventToNull = dart.constFn(dart.fnType(core.Null, [html.ProgressEvent])))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    FutureOfResponse: () => (T.FutureOfResponse = dart.constFn(async.Future$(response$.Response)))(),
+    ClientToFutureOfResponse: () => (T.ClientToFutureOfResponse = dart.constFn(dart.fnType(T.FutureOfResponse(), [client$.Client])))(),
+    FutureOfString: () => (T.FutureOfString = dart.constFn(async.Future$(core.String)))(),
+    ClientToFutureOfString: () => (T.ClientToFutureOfString = dart.constFn(dart.fnType(T.FutureOfString(), [client$.Client])))(),
+    FutureOfUint8List: () => (T.FutureOfUint8List = dart.constFn(async.Future$(typed_data.Uint8List)))(),
+    ClientToFutureOfUint8List: () => (T.ClientToFutureOfUint8List = dart.constFn(dart.fnType(T.FutureOfUint8List(), [client$.Client])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -27,2379 +89,1096 @@ define(['dart_sdk', 'packages/flutter/src/painting/colors.dart'], (function load
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 0
+      return C[0] = dart.constList([13, 10], T.intL());
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: T._EmptyStreamOfListLOfintL().prototype
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278190080.0
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 3707764736.0
+        __proto__: byte_stream.ByteStream.prototype,
+        [StreamView__stream]: C[2] || CT.C2
       });
     },
     get C3() {
-      return C[3] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 2315255808.0
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 1929379840
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 1627389952
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 1107296256
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 520093696
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294967295.0
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 3019898879.0
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 2583691263.0
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 2332033023.0
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 1660944383
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 1308622847
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 1040187391
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 536870911
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 452984831
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294962158.0
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294954450.0
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293892762.0
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293227379.0
-      });
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293874512.0
-      });
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294198070.0
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293212469.0
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292030255.0
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291176488.0
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290190364.0
-      });
-    },
-    get C18() {
-      return C[18] = dart.constMap(T.intL(), T.ColorL(), [50, C[19] || CT.C19, 100, C[20] || CT.C20, 200, C[21] || CT.C21, 300, C[22] || CT.C22, 400, C[23] || CT.C23, 500, C[24] || CT.C24, 600, C[25] || CT.C25, 700, C[26] || CT.C26, 800, C[27] || CT.C27, 900, C[28] || CT.C28]);
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4294198070.0,
-        [ColorSwatch__swatch]: C[18] || CT.C18
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294937216.0
-      });
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294922834.0
-      });
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294907716.0
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292149248.0
-      });
-    },
-    get C30() {
-      return C[30] = dart.constMap(T.intL(), T.ColorL(), [100, C[31] || CT.C31, 200, C[32] || CT.C32, 400, C[33] || CT.C33, 700, C[34] || CT.C34]);
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4294922834.0,
-        [ColorSwatch__swatch]: C[30] || CT.C30
-      });
-    },
-    get C37() {
-      return C[37] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294763756.0
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294491088.0
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294217649.0
-      });
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293943954.0
-      });
-    },
-    get C41() {
-      return C[41] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293673082.0
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293467747.0
-      });
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292352864.0
-      });
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290910299.0
-      });
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289533015.0
-      });
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287106639.0
-      });
-    },
-    get C36() {
-      return C[36] = dart.constMap(T.intL(), T.ColorL(), [50, C[37] || CT.C37, 100, C[38] || CT.C38, 200, C[39] || CT.C39, 300, C[40] || CT.C40, 400, C[41] || CT.C41, 500, C[42] || CT.C42, 600, C[43] || CT.C43, 700, C[44] || CT.C44, 800, C[45] || CT.C45, 900, C[46] || CT.C46]);
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4293467747.0,
-        [ColorSwatch__swatch]: C[36] || CT.C36
-      });
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294934699.0
-      });
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294918273.0
-      });
-    },
-    get C51() {
-      return C[51] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294246487.0
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291105122.0
-      });
-    },
-    get C48() {
-      return C[48] = dart.constMap(T.intL(), T.ColorL(), [100, C[49] || CT.C49, 200, C[50] || CT.C50, 400, C[51] || CT.C51, 700, C[52] || CT.C52]);
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4294918273.0,
-        [ColorSwatch__swatch]: C[48] || CT.C48
-      });
-    },
-    get C55() {
-      return C[55] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294174197.0
-      });
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292984551.0
-      });
-    },
-    get C57() {
-      return C[57] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291728344.0
-      });
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290406600.0
-      });
-    },
-    get C59() {
-      return C[59] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289415100.0
-      });
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4288423856.0
-      });
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287505578.0
-      });
-    },
-    get C62() {
-      return C[62] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286259106.0
-      });
-    },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4285143962.0
-      });
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283045004.0
-      });
-    },
-    get C54() {
-      return C[54] = dart.constMap(T.intL(), T.ColorL(), [50, C[55] || CT.C55, 100, C[56] || CT.C56, 200, C[57] || CT.C57, 300, C[58] || CT.C58, 400, C[59] || CT.C59, 500, C[60] || CT.C60, 600, C[61] || CT.C61, 700, C[62] || CT.C62, 800, C[63] || CT.C63, 900, C[64] || CT.C64]);
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4288423856.0,
-        [ColorSwatch__swatch]: C[54] || CT.C54
-      });
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293558524.0
-      });
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292886779.0
-      });
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292149497.0
-      });
-    },
-    get C70() {
-      return C[70] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289331455.0
-      });
-    },
-    get C66() {
-      return C[66] = dart.constMap(T.intL(), T.ColorL(), [100, C[67] || CT.C67, 200, C[68] || CT.C68, 400, C[69] || CT.C69, 700, C[70] || CT.C70]);
-    },
-    get C65() {
-      return C[65] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4292886779.0,
-        [ColorSwatch__swatch]: C[66] || CT.C66
-      });
-    },
-    get C73() {
-      return C[73] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293781494.0
-      });
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291937513.0
-      });
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289961435.0
-      });
-    },
-    get C76() {
-      return C[76] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287985101.0
-      });
-    },
-    get C77() {
-      return C[77] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286470082.0
-      });
-    },
-    get C78() {
-      return C[78] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284955319.0
-      });
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284364209.0
-      });
-    },
-    get C80() {
-      return C[80] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283510184.0
-      });
-    },
-    get C81() {
-      return C[81] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282722208.0
-      });
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281408402.0
-      });
-    },
-    get C72() {
-      return C[72] = dart.constMap(T.intL(), T.ColorL(), [50, C[73] || CT.C73, 100, C[74] || CT.C74, 200, C[75] || CT.C75, 300, C[76] || CT.C76, 400, C[77] || CT.C77, 500, C[78] || CT.C78, 600, C[79] || CT.C79, 700, C[80] || CT.C80, 800, C[81] || CT.C81, 900, C[82] || CT.C82]);
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4284955319.0,
-        [ColorSwatch__swatch]: C[72] || CT.C72
-      });
-    },
-    get C85() {
-      return C[85] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289956095.0
-      });
-    },
-    get C86() {
-      return C[86] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286336511.0
-      });
-    },
-    get C87() {
-      return C[87] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284817407.0
-      });
-    },
-    get C88() {
-      return C[88] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284612842.0
-      });
-    },
-    get C84() {
-      return C[84] = dart.constMap(T.intL(), T.ColorL(), [100, C[85] || CT.C85, 200, C[86] || CT.C86, 400, C[87] || CT.C87, 700, C[88] || CT.C88]);
-    },
-    get C83() {
-      return C[83] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4286336511.0,
-        [ColorSwatch__swatch]: C[84] || CT.C84
-      });
-    },
-    get C91() {
-      return C[91] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293454582.0
-      });
-    },
-    get C92() {
-      return C[92] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291152617.0
-      });
-    },
-    get C93() {
-      return C[93] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4288653530.0
-      });
-    },
-    get C94() {
-      return C[94] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286154443.0
-      });
-    },
-    get C95() {
-      return C[95] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284246976.0
-      });
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282339765.0
-      });
-    },
-    get C97() {
-      return C[97] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281944491.0
-      });
-    },
-    get C98() {
-      return C[98] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281352095.0
-      });
-    },
-    get C99() {
-      return C[99] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280825235.0
-      });
-    },
-    get C100() {
-      return C[100] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4279903102.0
-      });
-    },
-    get C90() {
-      return C[90] = dart.constMap(T.intL(), T.ColorL(), [50, C[91] || CT.C91, 100, C[92] || CT.C92, 200, C[93] || CT.C93, 300, C[94] || CT.C94, 400, C[95] || CT.C95, 500, C[96] || CT.C96, 600, C[97] || CT.C97, 700, C[98] || CT.C98, 800, C[99] || CT.C99, 900, C[100] || CT.C100]);
-    },
-    get C89() {
-      return C[89] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4282339765.0,
-        [ColorSwatch__swatch]: C[90] || CT.C90
-      });
-    },
-    get C103() {
-      return C[103] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287405823.0
-      });
-    },
-    get C104() {
-      return C[104] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283657726.0
-      });
-    },
-    get C105() {
-      return C[105] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282211070.0
-      });
-    },
-    get C106() {
-      return C[106] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281356286.0
-      });
-    },
-    get C102() {
-      return C[102] = dart.constMap(T.intL(), T.ColorL(), [100, C[103] || CT.C103, 200, C[104] || CT.C104, 400, C[105] || CT.C105, 700, C[106] || CT.C106]);
-    },
-    get C101() {
-      return C[101] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4283657726.0,
-        [ColorSwatch__swatch]: C[102] || CT.C102
-      });
-    },
-    get C109() {
-      return C[109] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293128957.0
-      });
-    },
-    get C110() {
-      return C[110] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290502395.0
-      });
-    },
-    get C111() {
-      return C[111] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287679225.0
-      });
-    },
-    get C112() {
-      return C[112] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284790262.0
-      });
-    },
-    get C113() {
-      return C[113] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282557941.0
-      });
-    },
-    get C114() {
-      return C[114] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280391411.0
-      });
-    },
-    get C115() {
-      return C[115] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280191205.0
-      });
-    },
-    get C116() {
-      return C[116] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4279858898.0
-      });
-    },
-    get C117() {
-      return C[117] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4279592384.0
-      });
-    },
-    get C118() {
-      return C[118] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4279060385.0
-      });
-    },
-    get C108() {
-      return C[108] = dart.constMap(T.intL(), T.ColorL(), [50, C[109] || CT.C109, 100, C[110] || CT.C110, 200, C[111] || CT.C111, 300, C[112] || CT.C112, 400, C[113] || CT.C113, 500, C[114] || CT.C114, 600, C[115] || CT.C115, 700, C[116] || CT.C116, 800, C[117] || CT.C117, 900, C[118] || CT.C118]);
-    },
-    get C107() {
-      return C[107] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4280391411.0,
-        [ColorSwatch__swatch]: C[108] || CT.C108
-      });
-    },
-    get C121() {
-      return C[121] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286755327.0
-      });
-    },
-    get C122() {
-      return C[122] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282682111.0
-      });
-    },
-    get C123() {
-      return C[123] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280908287.0
-      });
-    },
-    get C124() {
-      return C[124] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280902399.0
-      });
-    },
-    get C120() {
-      return C[120] = dart.constMap(T.intL(), T.ColorL(), [100, C[121] || CT.C121, 200, C[122] || CT.C122, 400, C[123] || CT.C123, 700, C[124] || CT.C124]);
-    },
-    get C119() {
-      return C[119] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4282682111.0,
-        [ColorSwatch__swatch]: C[120] || CT.C120
-      });
-    },
-    get C127() {
-      return C[127] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292998654.0
-      });
-    },
-    get C128() {
-      return C[128] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289979900.0
-      });
-    },
-    get C129() {
-      return C[129] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286698746.0
-      });
-    },
-    get C130() {
-      return C[130] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283417591.0
-      });
-    },
-    get C131() {
-      return C[131] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280923894.0
-      });
-    },
-    get C132() {
-      return C[132] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278430196.0
-      });
-    },
-    get C133() {
-      return C[133] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278426597.0
-      });
-    },
-    get C134() {
-      return C[134] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278356177.0
-      });
-    },
-    get C135() {
-      return C[135] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278351805.0
-      });
-    },
-    get C136() {
-      return C[136] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278278043.0
-      });
-    },
-    get C126() {
-      return C[126] = dart.constMap(T.intL(), T.ColorL(), [50, C[127] || CT.C127, 100, C[128] || CT.C128, 200, C[129] || CT.C129, 300, C[130] || CT.C130, 400, C[131] || CT.C131, 500, C[132] || CT.C132, 600, C[133] || CT.C133, 700, C[134] || CT.C134, 800, C[135] || CT.C135, 900, C[136] || CT.C136]);
-    },
-    get C125() {
-      return C[125] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4278430196.0,
-        [ColorSwatch__swatch]: C[126] || CT.C126
-      });
-    },
-    get C139() {
-      return C[139] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286634239.0
-      });
-    },
-    get C140() {
-      return C[140] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282434815.0
-      });
-    },
-    get C141() {
-      return C[141] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278235391.0
-      });
-    },
-    get C142() {
-      return C[142] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278227434.0
-      });
-    },
-    get C138() {
-      return C[138] = dart.constMap(T.intL(), T.ColorL(), [100, C[139] || CT.C139, 200, C[140] || CT.C140, 400, C[141] || CT.C141, 700, C[142] || CT.C142]);
-    },
-    get C137() {
-      return C[137] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4282434815.0,
-        [ColorSwatch__swatch]: C[138] || CT.C138
-      });
-    },
-    get C145() {
-      return C[145] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292933626.0
-      });
-    },
-    get C146() {
-      return C[146] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289915890.0
-      });
-    },
-    get C147() {
-      return C[147] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286635754.0
-      });
-    },
-    get C148() {
-      return C[148] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283289825.0
-      });
-    },
-    get C149() {
-      return C[149] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280731354.0
-      });
-    },
-    get C150() {
-      return C[150] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278238420.0
-      });
-    },
-    get C151() {
-      return C[151] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278234305.0
-      });
-    },
-    get C152() {
-      return C[152] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278228903.0
-      });
-    },
-    get C153() {
-      return C[153] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278223759.0
-      });
-    },
-    get C154() {
-      return C[154] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278214756.0
-      });
-    },
-    get C144() {
-      return C[144] = dart.constMap(T.intL(), T.ColorL(), [50, C[145] || CT.C145, 100, C[146] || CT.C146, 200, C[147] || CT.C147, 300, C[148] || CT.C148, 400, C[149] || CT.C149, 500, C[150] || CT.C150, 600, C[151] || CT.C151, 700, C[152] || CT.C152, 800, C[153] || CT.C153, 900, C[154] || CT.C154]);
-    },
-    get C143() {
-      return C[143] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4278238420.0,
-        [ColorSwatch__swatch]: C[144] || CT.C144
-      });
-    },
-    get C157() {
-      return C[157] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286906367.0
-      });
-    },
-    get C158() {
-      return C[158] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4279828479.0
-      });
-    },
-    get C159() {
-      return C[159] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278248959.0
-      });
-    },
-    get C160() {
-      return C[160] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278237396.0
-      });
-    },
-    get C156() {
-      return C[156] = dart.constMap(T.intL(), T.ColorL(), [100, C[157] || CT.C157, 200, C[158] || CT.C158, 400, C[159] || CT.C159, 700, C[160] || CT.C160]);
-    },
-    get C155() {
-      return C[155] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4279828479.0,
-        [ColorSwatch__swatch]: C[156] || CT.C156
-      });
-    },
-    get C163() {
-      return C[163] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292932337.0
-      });
-    },
-    get C164() {
-      return C[164] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289912795.0
-      });
-    },
-    get C165() {
-      return C[165] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286630852.0
-      });
-    },
-    get C166() {
-      return C[166] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283283116.0
-      });
-    },
-    get C167() {
-      return C[167] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280723098.0
-      });
-    },
-    get C168() {
-      return C[168] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278228616.0
-      });
-    },
-    get C169() {
-      return C[169] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278225275.0
-      });
-    },
-    get C170() {
-      return C[170] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278221163.0
-      });
-    },
-    get C171() {
-      return C[171] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278217052.0
-      });
-    },
-    get C172() {
-      return C[172] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278209856.0
-      });
-    },
-    get C162() {
-      return C[162] = dart.constMap(T.intL(), T.ColorL(), [50, C[163] || CT.C163, 100, C[164] || CT.C164, 200, C[165] || CT.C165, 300, C[166] || CT.C166, 400, C[167] || CT.C167, 500, C[168] || CT.C168, 600, C[169] || CT.C169, 700, C[170] || CT.C170, 800, C[171] || CT.C171, 900, C[172] || CT.C172]);
-    },
-    get C161() {
-      return C[161] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4278228616.0,
-        [ColorSwatch__swatch]: C[162] || CT.C162
-      });
-    },
-    get C175() {
-      return C[175] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289200107.0
-      });
-    },
-    get C176() {
-      return C[176] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284809178.0
-      });
-    },
-    get C177() {
-      return C[177] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280150454.0
-      });
-    },
-    get C178() {
-      return C[178] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278239141.0
-      });
-    },
-    get C174() {
-      return C[174] = dart.constMap(T.intL(), T.ColorL(), [100, C[175] || CT.C175, 200, C[176] || CT.C176, 400, C[177] || CT.C177, 700, C[178] || CT.C178]);
-    },
-    get C173() {
-      return C[173] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4284809178.0,
-        [ColorSwatch__swatch]: C[174] || CT.C174
-      });
-    },
-    get C181() {
-      return C[181] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293457385.0
-      });
-    },
-    get C182() {
-      return C[182] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291356361.0
-      });
-    },
-    get C183() {
-      return C[183] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289058471.0
-      });
-    },
-    get C184() {
-      return C[184] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286695300.0
-      });
-    },
-    get C185() {
-      return C[185] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284922730.0
-      });
-    },
-    get C186() {
-      return C[186] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283215696.0
-      });
-    },
-    get C187() {
-      return C[187] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282622023.0
-      });
-    },
-    get C188() {
-      return C[188] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281896508.0
-      });
-    },
-    get C189() {
-      return C[189] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281236786.0
-      });
-    },
-    get C190() {
-      return C[190] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4279983648.0
-      });
-    },
-    get C180() {
-      return C[180] = dart.constMap(T.intL(), T.ColorL(), [50, C[181] || CT.C181, 100, C[182] || CT.C182, 200, C[183] || CT.C183, 300, C[184] || CT.C184, 400, C[185] || CT.C185, 500, C[186] || CT.C186, 600, C[187] || CT.C187, 700, C[188] || CT.C188, 800, C[189] || CT.C189, 900, C[190] || CT.C190]);
-    },
-    get C179() {
-      return C[179] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4283215696.0,
-        [ColorSwatch__swatch]: C[180] || CT.C180
-      });
-    },
-    get C193() {
-      return C[193] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290377418.0
-      });
-    },
-    get C194() {
-      return C[194] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4285132974.0
-      });
-    },
-    get C195() {
-      return C[195] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278249078.0
-      });
-    },
-    get C196() {
-      return C[196] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278241363.0
-      });
-    },
-    get C192() {
-      return C[192] = dart.constMap(T.intL(), T.ColorL(), [100, C[193] || CT.C193, 200, C[194] || CT.C194, 400, C[195] || CT.C195, 700, C[196] || CT.C196]);
-    },
-    get C191() {
-      return C[191] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4285132974.0,
-        [ColorSwatch__swatch]: C[192] || CT.C192
-      });
-    },
-    get C199() {
-      return C[199] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294047977.0
-      });
-    },
-    get C200() {
-      return C[200] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292668872.0
-      });
-    },
-    get C201() {
-      return C[201] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291158437.0
-      });
-    },
-    get C202() {
-      return C[202] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289648001.0
-      });
-    },
-    get C203() {
-      return C[203] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4288466021.0
-      });
-    },
-    get C204() {
-      return C[204] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287349578.0
-      });
-    },
-    get C205() {
-      return C[205] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286362434.0
-      });
-    },
-    get C206() {
-      return C[206] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4285046584.0
-      });
-    },
-    get C207() {
-      return C[207] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283796271.0
-      });
-    },
-    get C208() {
-      return C[208] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281559326.0
-      });
-    },
-    get C198() {
-      return C[198] = dart.constMap(T.intL(), T.ColorL(), [50, C[199] || CT.C199, 100, C[200] || CT.C200, 200, C[201] || CT.C201, 300, C[202] || CT.C202, 400, C[203] || CT.C203, 500, C[204] || CT.C204, 600, C[205] || CT.C205, 700, C[206] || CT.C206, 800, C[207] || CT.C207, 900, C[208] || CT.C208]);
-    },
-    get C197() {
-      return C[197] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4287349578.0,
-        [ColorSwatch__swatch]: C[198] || CT.C198
-      });
-    },
-    get C211() {
-      return C[211] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291624848.0
-      });
-    },
-    get C212() {
-      return C[212] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289920857.0
-      });
-    },
-    get C213() {
-      return C[213] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4285988611.0
-      });
-    },
-    get C214() {
-      return C[214] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284800279.0
-      });
-    },
-    get C210() {
-      return C[210] = dart.constMap(T.intL(), T.ColorL(), [100, C[211] || CT.C211, 200, C[212] || CT.C212, 400, C[213] || CT.C213, 700, C[214] || CT.C214]);
-    },
-    get C209() {
-      return C[209] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4289920857.0,
-        [ColorSwatch__swatch]: C[210] || CT.C210
-      });
-    },
-    get C217() {
-      return C[217] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294573031.0
-      });
-    },
-    get C218() {
-      return C[218] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293981379.0
-      });
-    },
-    get C219() {
-      return C[219] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293324444.0
-      });
-    },
-    get C220() {
-      return C[220] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292667253.0
-      });
-    },
-    get C221() {
-      return C[221] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292141399.0
-      });
-    },
-    get C222() {
-      return C[222] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291681337.0
-      });
-    },
-    get C223() {
-      return C[223] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290824755.0
-      });
-    },
-    get C224() {
-      return C[224] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289705003.0
-      });
-    },
-    get C225() {
-      return C[225] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4288584996.0
-      });
-    },
-    get C226() {
-      return C[226] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286740247.0
-      });
-    },
-    get C216() {
-      return C[216] = dart.constMap(T.intL(), T.ColorL(), [50, C[217] || CT.C217, 100, C[218] || CT.C218, 200, C[219] || CT.C219, 300, C[220] || CT.C220, 400, C[221] || CT.C221, 500, C[222] || CT.C222, 600, C[223] || CT.C223, 700, C[224] || CT.C224, 800, C[225] || CT.C225, 900, C[226] || CT.C226]);
-    },
-    get C215() {
-      return C[215] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4291681337.0,
-        [ColorSwatch__swatch]: C[216] || CT.C216
-      });
-    },
-    get C229() {
-      return C[229] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294246273.0
-      });
-    },
-    get C230() {
-      return C[230] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293852993.0
-      });
-    },
-    get C231() {
-      return C[231] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291231488.0
-      });
-    },
-    get C232() {
-      return C[232] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289653248.0
-      });
-    },
-    get C228() {
-      return C[228] = dart.constMap(T.intL(), T.ColorL(), [100, C[229] || CT.C229, 200, C[230] || CT.C230, 400, C[231] || CT.C231, 700, C[232] || CT.C232]);
-    },
-    get C227() {
-      return C[227] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4293852993.0,
-        [ColorSwatch__swatch]: C[228] || CT.C228
-      });
-    },
-    get C235() {
-      return C[235] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294966759.0
-      });
-    },
-    get C236() {
-      return C[236] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294965700.0
-      });
-    },
-    get C237() {
-      return C[237] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294964637.0
-      });
-    },
-    get C238() {
-      return C[238] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294963574.0
-      });
-    },
-    get C239() {
-      return C[239] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294962776.0
-      });
-    },
-    get C240() {
-      return C[240] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294961979.0
-      });
-    },
-    get C241() {
-      return C[241] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294826037.0
-      });
-    },
-    get C242() {
-      return C[242] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294688813.0
-      });
-    },
-    get C243() {
-      return C[243] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294551589.0
-      });
-    },
-    get C244() {
-      return C[244] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294278935.0
-      });
-    },
-    get C234() {
-      return C[234] = dart.constMap(T.intL(), T.ColorL(), [50, C[235] || CT.C235, 100, C[236] || CT.C236, 200, C[237] || CT.C237, 300, C[238] || CT.C238, 400, C[239] || CT.C239, 500, C[240] || CT.C240, 600, C[241] || CT.C241, 700, C[242] || CT.C242, 800, C[243] || CT.C243, 900, C[244] || CT.C244]);
-    },
-    get C233() {
-      return C[233] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4294961979.0,
-        [ColorSwatch__swatch]: C[234] || CT.C234
-      });
-    },
-    get C247() {
-      return C[247] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294967181.0
-      });
-    },
-    get C248() {
-      return C[248] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294967040.0
-      });
-    },
-    get C249() {
-      return C[249] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294961664.0
-      });
-    },
-    get C250() {
-      return C[250] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294956544.0
-      });
-    },
-    get C246() {
-      return C[246] = dart.constMap(T.intL(), T.ColorL(), [100, C[247] || CT.C247, 200, C[248] || CT.C248, 400, C[249] || CT.C249, 700, C[250] || CT.C250]);
-    },
-    get C245() {
-      return C[245] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4294967040.0,
-        [ColorSwatch__swatch]: C[246] || CT.C246
-      });
-    },
-    get C253() {
-      return C[253] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294965473.0
-      });
-    },
-    get C254() {
-      return C[254] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294962355.0
-      });
-    },
-    get C255() {
-      return C[255] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294959234.0
-      });
-    },
-    get C256() {
-      return C[256] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294956367.0
-      });
-    },
-    get C257() {
-      return C[257] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294953512.0
-      });
-    },
-    get C258() {
-      return C[258] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294951175.0
-      });
-    },
-    get C259() {
-      return C[259] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294947584.0
-      });
-    },
-    get C260() {
-      return C[260] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294942720.0
-      });
-    },
-    get C261() {
-      return C[261] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294938368.0
-      });
-    },
-    get C262() {
-      return C[262] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294930176.0
-      });
-    },
-    get C252() {
-      return C[252] = dart.constMap(T.intL(), T.ColorL(), [50, C[253] || CT.C253, 100, C[254] || CT.C254, 200, C[255] || CT.C255, 300, C[256] || CT.C256, 400, C[257] || CT.C257, 500, C[258] || CT.C258, 600, C[259] || CT.C259, 700, C[260] || CT.C260, 800, C[261] || CT.C261, 900, C[262] || CT.C262]);
-    },
-    get C251() {
-      return C[251] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4294951175.0,
-        [ColorSwatch__swatch]: C[252] || CT.C252
-      });
-    },
-    get C265() {
-      return C[265] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294960511.0
-      });
-    },
-    get C266() {
-      return C[266] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294956864.0
-      });
-    },
-    get C267() {
-      return C[267] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294951936.0
-      });
-    },
-    get C268() {
-      return C[268] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294945536.0
-      });
-    },
-    get C264() {
-      return C[264] = dart.constMap(T.intL(), T.ColorL(), [100, C[265] || CT.C265, 200, C[266] || CT.C266, 400, C[267] || CT.C267, 700, C[268] || CT.C268]);
-    },
-    get C263() {
-      return C[263] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4294956864.0,
-        [ColorSwatch__swatch]: C[264] || CT.C264
-      });
-    },
-    get C271() {
-      return C[271] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294964192.0
-      });
-    },
-    get C272() {
-      return C[272] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294959282.0
-      });
-    },
-    get C273() {
-      return C[273] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294954112.0
-      });
-    },
-    get C274() {
-      return C[274] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294948685.0
-      });
-    },
-    get C275() {
-      return C[275] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294944550.0
-      });
-    },
-    get C276() {
-      return C[276] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294940672.0
-      });
-    },
-    get C277() {
-      return C[277] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294675456.0
-      });
-    },
-    get C278() {
-      return C[278] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294278144.0
-      });
-    },
-    get C279() {
-      return C[279] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293880832.0
-      });
-    },
-    get C280() {
-      return C[280] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293284096.0
-      });
-    },
-    get C270() {
-      return C[270] = dart.constMap(T.intL(), T.ColorL(), [50, C[271] || CT.C271, 100, C[272] || CT.C272, 200, C[273] || CT.C273, 300, C[274] || CT.C274, 400, C[275] || CT.C275, 500, C[276] || CT.C276, 600, C[277] || CT.C277, 700, C[278] || CT.C278, 800, C[279] || CT.C279, 900, C[280] || CT.C280]);
-    },
-    get C269() {
-      return C[269] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4294940672.0,
-        [ColorSwatch__swatch]: C[270] || CT.C270
-      });
-    },
-    get C283() {
-      return C[283] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294955392.0
-      });
-    },
-    get C284() {
-      return C[284] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294945600.0
-      });
-    },
-    get C285() {
-      return C[285] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294938880.0
-      });
-    },
-    get C286() {
-      return C[286] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294929664.0
-      });
-    },
-    get C282() {
-      return C[282] = dart.constMap(T.intL(), T.ColorL(), [100, C[283] || CT.C283, 200, C[284] || CT.C284, 400, C[285] || CT.C285, 700, C[286] || CT.C286]);
-    },
-    get C281() {
-      return C[281] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4294945600.0,
-        [ColorSwatch__swatch]: C[282] || CT.C282
-      });
-    },
-    get C289() {
-      return C[289] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294699495.0
-      });
-    },
-    get C290() {
-      return C[290] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294954172.0
-      });
-    },
-    get C291() {
-      return C[291] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294945681.0
-      });
-    },
-    get C292() {
-      return C[292] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294937189.0
-      });
-    },
-    get C293() {
-      return C[293] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294930499.0
-      });
-    },
-    get C294() {
-      return C[294] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294924066.0
-      });
-    },
-    get C295() {
-      return C[295] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294201630.0
-      });
-    },
-    get C296() {
-      return C[296] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293282329.0
-      });
-    },
-    get C297() {
-      return C[297] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292363029.0
-      });
-    },
-    get C298() {
-      return C[298] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290721292.0
-      });
-    },
-    get C288() {
-      return C[288] = dart.constMap(T.intL(), T.ColorL(), [50, C[289] || CT.C289, 100, C[290] || CT.C290, 200, C[291] || CT.C291, 300, C[292] || CT.C292, 400, C[293] || CT.C293, 500, C[294] || CT.C294, 600, C[295] || CT.C295, 700, C[296] || CT.C296, 800, C[297] || CT.C297, 900, C[298] || CT.C298]);
-    },
-    get C287() {
-      return C[287] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4294924066.0,
-        [ColorSwatch__swatch]: C[288] || CT.C288
-      });
-    },
-    get C301() {
-      return C[301] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294942336.0
-      });
-    },
-    get C302() {
-      return C[302] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294929984.0
-      });
-    },
-    get C303() {
-      return C[303] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294917376.0
-      });
-    },
-    get C304() {
-      return C[304] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292684800.0
-      });
-    },
-    get C300() {
-      return C[300] = dart.constMap(T.intL(), T.ColorL(), [100, C[301] || CT.C301, 200, C[302] || CT.C302, 400, C[303] || CT.C303, 700, C[304] || CT.C304]);
-    },
-    get C299() {
-      return C[299] = dart.const({
-        __proto__: colors$.MaterialAccentColor.prototype,
-        [Color_value]: 4294929984.0,
-        [ColorSwatch__swatch]: C[300] || CT.C300
-      });
-    },
-    get C307() {
-      return C[307] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293913577.0
-      });
-    },
-    get C308() {
-      return C[308] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292332744.0
-      });
-    },
-    get C309() {
-      return C[309] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290554532.0
-      });
-    },
-    get C310() {
-      return C[310] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4288776319.0
-      });
-    },
-    get C311() {
-      return C[311] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287458915.0
-      });
-    },
-    get C312() {
-      return C[312] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286141768.0
-      });
-    },
-    get C313() {
-      return C[313] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4285353025.0
-      });
-    },
-    get C314() {
-      return C[314] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284301367.0
-      });
-    },
-    get C315() {
-      return C[315] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283315246.0
-      });
-    },
-    get C316() {
-      return C[316] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282263331.0
-      });
-    },
-    get C306() {
-      return C[306] = dart.constMap(T.intL(), T.ColorL(), [50, C[307] || CT.C307, 100, C[308] || CT.C308, 200, C[309] || CT.C309, 300, C[310] || CT.C310, 400, C[311] || CT.C311, 500, C[312] || CT.C312, 600, C[313] || CT.C313, 700, C[314] || CT.C314, 800, C[315] || CT.C315, 900, C[316] || CT.C316]);
-    },
-    get C305() {
-      return C[305] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4286141768.0,
-        [ColorSwatch__swatch]: C[306] || CT.C306
-      });
-    },
-    get C319() {
-      return C[319] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294638330.0
-      });
-    },
-    get C320() {
-      return C[320] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294309365.0
-      });
-    },
-    get C321() {
-      return C[321] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293848814.0
-      });
-    },
-    get C322() {
-      return C[322] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292927712.0
-      });
-    },
-    get C323() {
-      return C[323] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4292269782.0
-      });
-    },
-    get C324() {
-      return C[324] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290624957.0
-      });
-    },
-    get C325() {
-      return C[325] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4288585374.0
-      });
-    },
-    get C326() {
-      return C[326] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4285887861.0
-      });
-    },
-    get C327() {
-      return C[327] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284572001.0
-      });
-    },
-    get C328() {
-      return C[328] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282532418.0
-      });
-    },
-    get C329() {
-      return C[329] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281348144.0
-      });
-    },
-    get C330() {
-      return C[330] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280361249.0
-      });
-    },
-    get C318() {
-      return C[318] = dart.constMap(T.intL(), T.ColorL(), [50, C[319] || CT.C319, 100, C[320] || CT.C320, 200, C[321] || CT.C321, 300, C[322] || CT.C322, 350, C[323] || CT.C323, 400, C[324] || CT.C324, 500, C[325] || CT.C325, 600, C[326] || CT.C326, 700, C[327] || CT.C327, 800, C[328] || CT.C328, 850, C[329] || CT.C329, 900, C[330] || CT.C330]);
-    },
-    get C317() {
-      return C[317] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4288585374.0,
-        [ColorSwatch__swatch]: C[318] || CT.C318
-      });
-    },
-    get C333() {
-      return C[333] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293718001.0
-      });
-    },
-    get C334() {
-      return C[334] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4291811548.0
-      });
-    },
-    get C335() {
-      return C[335] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4289773253.0
-      });
-    },
-    get C336() {
-      return C[336] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287669422.0
-      });
-    },
-    get C337() {
-      return C[337] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4286091420.0
-      });
-    },
-    get C338() {
-      return C[338] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4284513675.0
-      });
-    },
-    get C339() {
-      return C[339] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283723386.0
-      });
-    },
-    get C340() {
-      return C[340] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4282735204.0
-      });
-    },
-    get C341() {
-      return C[341] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281812815.0
-      });
-    },
-    get C342() {
-      return C[342] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4280693304.0
-      });
-    },
-    get C332() {
-      return C[332] = dart.constMap(T.intL(), T.ColorL(), [50, C[333] || CT.C333, 100, C[334] || CT.C334, 200, C[335] || CT.C335, 300, C[336] || CT.C336, 400, C[337] || CT.C337, 500, C[338] || CT.C338, 600, C[339] || CT.C339, 700, C[340] || CT.C340, 800, C[341] || CT.C341, 900, C[342] || CT.C342]);
-    },
-    get C331() {
-      return C[331] = dart.const({
-        __proto__: colors$.MaterialColor.prototype,
-        [Color_value]: 4284513675.0,
-        [ColorSwatch__swatch]: C[332] || CT.C332
-      });
-    },
-    get C343() {
-      return C[343] = dart.constList([C[17] || CT.C17, C[35] || CT.C35, C[53] || CT.C53, C[71] || CT.C71, C[89] || CT.C89, C[107] || CT.C107, C[125] || CT.C125, C[143] || CT.C143, C[161] || CT.C161, C[179] || CT.C179, C[197] || CT.C197, C[215] || CT.C215, C[233] || CT.C233, C[251] || CT.C251, C[269] || CT.C269, C[287] || CT.C287, C[305] || CT.C305, C[331] || CT.C331], T.MaterialColorL());
-    },
-    get C344() {
-      return C[344] = dart.constList([C[29] || CT.C29, C[47] || CT.C47, C[65] || CT.C65, C[83] || CT.C83, C[101] || CT.C101, C[119] || CT.C119, C[137] || CT.C137, C[155] || CT.C155, C[173] || CT.C173, C[191] || CT.C191, C[209] || CT.C209, C[227] || CT.C227, C[245] || CT.C245, C[263] || CT.C263, C[281] || CT.C281, C[299] || CT.C299], T.MaterialAccentColorL());
+      return C[3] = dart.constMap(T.StringL(), T.StringL(), []);
     }
   }, false);
-  var C = Array(345).fill(void 0);
+  var C = Array(4).fill(void 0);
   var I = [
-    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/packages/flutter/lib/src/material/colors.dart",
-    "package:flutter/src/material/colors.dart"
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/multipart_request.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/base_request.dart",
+    "package:http/src/base_request.dart",
+    "package:http/src/multipart_request.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/multipart_file_stub.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/multipart_file.dart",
+    "package:http/src/multipart_file.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/streamed_request.dart",
+    "package:http/src/streamed_request.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/browser_client.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/base_client.dart",
+    "package:http/src/base_client.dart",
+    "package:http/src/browser_client.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/response.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/base_response.dart",
+    "package:http/src/base_response.dart",
+    "package:http/src/response.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/request.dart",
+    "package:http/src/request.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/streamed_response.dart",
+    "package:http/src/streamed_response.dart",
+    "package:http/src/client.dart",
+    "file:///C:/Users/Sean/Documents/SIUE/CS499/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/http.dart"
   ];
-  colors$.MaterialColor = class MaterialColor extends colors.ColorSwatch$(core.int) {
-    get shade50() {
-      return dart.nullCheck(this._get(50));
+  var fields = dart.privateName(multipart_request, "MultipartRequest.fields");
+  var files = dart.privateName(multipart_request, "MultipartRequest.files");
+  var _headerForField = dart.privateName(multipart_request, "_headerForField");
+  var _headerForFile = dart.privateName(multipart_request, "_headerForFile");
+  var _boundaryString = dart.privateName(multipart_request, "_boundaryString");
+  var _finalize = dart.privateName(multipart_request, "_finalize");
+  var _browserEncode = dart.privateName(multipart_request, "_browserEncode");
+  var method$ = dart.privateName(base_request, "BaseRequest.method");
+  var url$ = dart.privateName(base_request, "BaseRequest.url");
+  var headers = dart.privateName(base_request, "BaseRequest.headers");
+  var _contentLength = dart.privateName(base_request, "_contentLength");
+  var _persistentConnection = dart.privateName(base_request, "_persistentConnection");
+  var _followRedirects = dart.privateName(base_request, "_followRedirects");
+  var _maxRedirects = dart.privateName(base_request, "_maxRedirects");
+  var _finalized = dart.privateName(base_request, "_finalized");
+  var _checkFinalized = dart.privateName(base_request, "_checkFinalized");
+  var StreamView__stream = dart.privateName(async, "StreamView._stream");
+  base_request.BaseRequest = class BaseRequest extends core.Object {
+    get method() {
+      return this[method$];
     }
-    get shade100() {
-      return dart.nullCheck(this._get(100));
+    set method(value) {
+      super.method = value;
     }
-    get shade200() {
-      return dart.nullCheck(this._get(200));
+    get url() {
+      return this[url$];
     }
-    get shade300() {
-      return dart.nullCheck(this._get(300));
+    set url(value) {
+      super.url = value;
     }
-    get shade400() {
-      return dart.nullCheck(this._get(400));
+    get headers() {
+      return this[headers];
     }
-    get shade500() {
-      return dart.nullCheck(this._get(500));
+    set headers(value) {
+      super.headers = value;
     }
-    get shade600() {
-      return dart.nullCheck(this._get(600));
+    get contentLength() {
+      return this[_contentLength];
     }
-    get shade700() {
-      return dart.nullCheck(this._get(700));
+    set contentLength(value) {
+      if (value != null && dart.notNull(value) < 0) {
+        dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(value) + "."));
+      }
+      this[_checkFinalized]();
+      this[_contentLength] = value;
     }
-    get shade800() {
-      return dart.nullCheck(this._get(800));
+    get persistentConnection() {
+      return this[_persistentConnection];
     }
-    get shade900() {
-      return dart.nullCheck(this._get(900));
+    set persistentConnection(value) {
+      if (value == null) dart.nullFailed(I[1], 54, 33, "value");
+      this[_checkFinalized]();
+      this[_persistentConnection] = value;
     }
-  };
-  (colors$.MaterialColor.new = function(primary, swatch) {
-    if (primary == null) dart.nullFailed(I[0], 23, 27, "primary");
-    if (swatch == null) dart.nullFailed(I[0], 23, 52, "swatch");
-    colors$.MaterialColor.__proto__.new.call(this, primary, swatch);
-    ;
-  }).prototype = colors$.MaterialColor.prototype;
-  dart.addTypeTests(colors$.MaterialColor);
-  dart.addTypeCaches(colors$.MaterialColor);
-  dart.setGetterSignature(colors$.MaterialColor, () => ({
-    __proto__: dart.getGetters(colors$.MaterialColor.__proto__),
-    shade50: ui.Color,
-    shade100: ui.Color,
-    shade200: ui.Color,
-    shade300: ui.Color,
-    shade400: ui.Color,
-    shade500: ui.Color,
-    shade600: ui.Color,
-    shade700: ui.Color,
-    shade800: ui.Color,
-    shade900: ui.Color
-  }));
-  dart.setLibraryUri(colors$.MaterialColor, I[1]);
-  colors$.MaterialAccentColor = class MaterialAccentColor extends colors.ColorSwatch$(core.int) {
-    get shade50() {
-      return dart.nullCheck(this._get(50));
+    get followRedirects() {
+      return this[_followRedirects];
     }
-    get shade100() {
-      return dart.nullCheck(this._get(100));
+    set followRedirects(value) {
+      if (value == null) dart.nullFailed(I[1], 65, 28, "value");
+      this[_checkFinalized]();
+      this[_followRedirects] = value;
     }
-    get shade200() {
-      return dart.nullCheck(this._get(200));
+    get maxRedirects() {
+      return this[_maxRedirects];
     }
-    get shade400() {
-      return dart.nullCheck(this._get(400));
+    set maxRedirects(value) {
+      if (value == null) dart.nullFailed(I[1], 77, 24, "value");
+      this[_checkFinalized]();
+      this[_maxRedirects] = value;
     }
-    get shade700() {
-      return dart.nullCheck(this._get(700));
+    get finalized() {
+      return this[_finalized];
     }
-  };
-  (colors$.MaterialAccentColor.new = function(primary, swatch) {
-    if (primary == null) dart.nullFailed(I[0], 71, 33, "primary");
-    if (swatch == null) dart.nullFailed(I[0], 71, 58, "swatch");
-    colors$.MaterialAccentColor.__proto__.new.call(this, primary, swatch);
-    ;
-  }).prototype = colors$.MaterialAccentColor.prototype;
-  dart.addTypeTests(colors$.MaterialAccentColor);
-  dart.addTypeCaches(colors$.MaterialAccentColor);
-  dart.setGetterSignature(colors$.MaterialAccentColor, () => ({
-    __proto__: dart.getGetters(colors$.MaterialAccentColor.__proto__),
-    shade50: ui.Color,
-    shade100: ui.Color,
-    shade200: ui.Color,
-    shade400: ui.Color,
-    shade700: ui.Color
-  }));
-  dart.setLibraryUri(colors$.MaterialAccentColor, I[1]);
-  var Color_value = dart.privateName(ui, "Color.value");
-  var ColorSwatch__swatch = dart.privateName(colors, "ColorSwatch._swatch");
-  colors$.Colors = class Colors extends core.Object {};
-  (colors$.Colors.__ = function() {
-    ;
-  }).prototype = colors$.Colors.prototype;
-  dart.addTypeTests(colors$.Colors);
-  dart.addTypeCaches(colors$.Colors);
-  dart.setLibraryUri(colors$.Colors, I[1]);
-  dart.defineLazy(colors$.Colors, {
-    /*colors$.Colors.transparent*/get transparent() {
-      return C[0] || CT.C0;
-    },
-    /*colors$.Colors.black*/get black() {
+    finalize() {
+      if (dart.test(this.finalized)) dart.throw(new core.StateError.new("Can't finalize a finalized Request."));
+      this[_finalized] = true;
       return C[1] || CT.C1;
-    },
-    /*colors$.Colors.black87*/get black87() {
-      return C[2] || CT.C2;
-    },
-    /*colors$.Colors.black54*/get black54() {
-      return C[3] || CT.C3;
-    },
-    /*colors$.Colors.black45*/get black45() {
-      return C[4] || CT.C4;
-    },
-    /*colors$.Colors.black38*/get black38() {
-      return C[5] || CT.C5;
-    },
-    /*colors$.Colors.black26*/get black26() {
-      return C[6] || CT.C6;
-    },
-    /*colors$.Colors.black12*/get black12() {
-      return C[7] || CT.C7;
-    },
-    /*colors$.Colors.white*/get white() {
-      return C[8] || CT.C8;
-    },
-    /*colors$.Colors.white70*/get white70() {
-      return C[9] || CT.C9;
-    },
-    /*colors$.Colors.white60*/get white60() {
-      return C[10] || CT.C10;
-    },
-    /*colors$.Colors.white54*/get white54() {
-      return C[11] || CT.C11;
-    },
-    /*colors$.Colors.white38*/get white38() {
-      return C[12] || CT.C12;
-    },
-    /*colors$.Colors.white30*/get white30() {
-      return C[13] || CT.C13;
-    },
-    /*colors$.Colors.white24*/get white24() {
-      return C[14] || CT.C14;
-    },
-    /*colors$.Colors.white12*/get white12() {
-      return C[15] || CT.C15;
-    },
-    /*colors$.Colors.white10*/get white10() {
-      return C[16] || CT.C16;
-    },
-    /*colors$.Colors.red*/get red() {
-      return C[17] || CT.C17;
-    },
-    /*colors$.Colors._redPrimaryValue*/get _redPrimaryValue() {
-      return 4294198070.0;
-    },
-    /*colors$.Colors.redAccent*/get redAccent() {
-      return C[29] || CT.C29;
-    },
-    /*colors$.Colors._redAccentValue*/get _redAccentValue() {
-      return 4294922834.0;
-    },
-    /*colors$.Colors.pink*/get pink() {
-      return C[35] || CT.C35;
-    },
-    /*colors$.Colors._pinkPrimaryValue*/get _pinkPrimaryValue() {
-      return 4293467747.0;
-    },
-    /*colors$.Colors.pinkAccent*/get pinkAccent() {
-      return C[47] || CT.C47;
-    },
-    /*colors$.Colors._pinkAccentPrimaryValue*/get _pinkAccentPrimaryValue() {
-      return 4294918273.0;
-    },
-    /*colors$.Colors.purple*/get purple() {
-      return C[53] || CT.C53;
-    },
-    /*colors$.Colors._purplePrimaryValue*/get _purplePrimaryValue() {
-      return 4288423856.0;
-    },
-    /*colors$.Colors.purpleAccent*/get purpleAccent() {
-      return C[65] || CT.C65;
-    },
-    /*colors$.Colors._purpleAccentPrimaryValue*/get _purpleAccentPrimaryValue() {
-      return 4292886779.0;
-    },
-    /*colors$.Colors.deepPurple*/get deepPurple() {
-      return C[71] || CT.C71;
-    },
-    /*colors$.Colors._deepPurplePrimaryValue*/get _deepPurplePrimaryValue() {
-      return 4284955319.0;
-    },
-    /*colors$.Colors.deepPurpleAccent*/get deepPurpleAccent() {
-      return C[83] || CT.C83;
-    },
-    /*colors$.Colors._deepPurpleAccentPrimaryValue*/get _deepPurpleAccentPrimaryValue() {
-      return 4286336511.0;
-    },
-    /*colors$.Colors.indigo*/get indigo() {
-      return C[89] || CT.C89;
-    },
-    /*colors$.Colors._indigoPrimaryValue*/get _indigoPrimaryValue() {
-      return 4282339765.0;
-    },
-    /*colors$.Colors.indigoAccent*/get indigoAccent() {
-      return C[101] || CT.C101;
-    },
-    /*colors$.Colors._indigoAccentPrimaryValue*/get _indigoAccentPrimaryValue() {
-      return 4283657726.0;
-    },
-    /*colors$.Colors.blue*/get blue() {
-      return C[107] || CT.C107;
-    },
-    /*colors$.Colors._bluePrimaryValue*/get _bluePrimaryValue() {
-      return 4280391411.0;
-    },
-    /*colors$.Colors.blueAccent*/get blueAccent() {
-      return C[119] || CT.C119;
-    },
-    /*colors$.Colors._blueAccentPrimaryValue*/get _blueAccentPrimaryValue() {
-      return 4282682111.0;
-    },
-    /*colors$.Colors.lightBlue*/get lightBlue() {
-      return C[125] || CT.C125;
-    },
-    /*colors$.Colors._lightBluePrimaryValue*/get _lightBluePrimaryValue() {
-      return 4278430196.0;
-    },
-    /*colors$.Colors.lightBlueAccent*/get lightBlueAccent() {
-      return C[137] || CT.C137;
-    },
-    /*colors$.Colors._lightBlueAccentPrimaryValue*/get _lightBlueAccentPrimaryValue() {
-      return 4282434815.0;
-    },
-    /*colors$.Colors.cyan*/get cyan() {
-      return C[143] || CT.C143;
-    },
-    /*colors$.Colors._cyanPrimaryValue*/get _cyanPrimaryValue() {
-      return 4278238420.0;
-    },
-    /*colors$.Colors.cyanAccent*/get cyanAccent() {
-      return C[155] || CT.C155;
-    },
-    /*colors$.Colors._cyanAccentPrimaryValue*/get _cyanAccentPrimaryValue() {
-      return 4279828479.0;
-    },
-    /*colors$.Colors.teal*/get teal() {
-      return C[161] || CT.C161;
-    },
-    /*colors$.Colors._tealPrimaryValue*/get _tealPrimaryValue() {
-      return 4278228616.0;
-    },
-    /*colors$.Colors.tealAccent*/get tealAccent() {
-      return C[173] || CT.C173;
-    },
-    /*colors$.Colors._tealAccentPrimaryValue*/get _tealAccentPrimaryValue() {
-      return 4284809178.0;
-    },
-    /*colors$.Colors.green*/get green() {
-      return C[179] || CT.C179;
-    },
-    /*colors$.Colors._greenPrimaryValue*/get _greenPrimaryValue() {
-      return 4283215696.0;
-    },
-    /*colors$.Colors.greenAccent*/get greenAccent() {
-      return C[191] || CT.C191;
-    },
-    /*colors$.Colors._greenAccentPrimaryValue*/get _greenAccentPrimaryValue() {
-      return 4285132974.0;
-    },
-    /*colors$.Colors.lightGreen*/get lightGreen() {
-      return C[197] || CT.C197;
-    },
-    /*colors$.Colors._lightGreenPrimaryValue*/get _lightGreenPrimaryValue() {
-      return 4287349578.0;
-    },
-    /*colors$.Colors.lightGreenAccent*/get lightGreenAccent() {
-      return C[209] || CT.C209;
-    },
-    /*colors$.Colors._lightGreenAccentPrimaryValue*/get _lightGreenAccentPrimaryValue() {
-      return 4289920857.0;
-    },
-    /*colors$.Colors.lime*/get lime() {
-      return C[215] || CT.C215;
-    },
-    /*colors$.Colors._limePrimaryValue*/get _limePrimaryValue() {
-      return 4291681337.0;
-    },
-    /*colors$.Colors.limeAccent*/get limeAccent() {
-      return C[227] || CT.C227;
-    },
-    /*colors$.Colors._limeAccentPrimaryValue*/get _limeAccentPrimaryValue() {
-      return 4293852993.0;
-    },
-    /*colors$.Colors.yellow*/get yellow() {
-      return C[233] || CT.C233;
-    },
-    /*colors$.Colors._yellowPrimaryValue*/get _yellowPrimaryValue() {
-      return 4294961979.0;
-    },
-    /*colors$.Colors.yellowAccent*/get yellowAccent() {
-      return C[245] || CT.C245;
-    },
-    /*colors$.Colors._yellowAccentPrimaryValue*/get _yellowAccentPrimaryValue() {
-      return 4294967040.0;
-    },
-    /*colors$.Colors.amber*/get amber() {
-      return C[251] || CT.C251;
-    },
-    /*colors$.Colors._amberPrimaryValue*/get _amberPrimaryValue() {
-      return 4294951175.0;
-    },
-    /*colors$.Colors.amberAccent*/get amberAccent() {
-      return C[263] || CT.C263;
-    },
-    /*colors$.Colors._amberAccentPrimaryValue*/get _amberAccentPrimaryValue() {
-      return 4294956864.0;
-    },
-    /*colors$.Colors.orange*/get orange() {
-      return C[269] || CT.C269;
-    },
-    /*colors$.Colors._orangePrimaryValue*/get _orangePrimaryValue() {
-      return 4294940672.0;
-    },
-    /*colors$.Colors.orangeAccent*/get orangeAccent() {
-      return C[281] || CT.C281;
-    },
-    /*colors$.Colors._orangeAccentPrimaryValue*/get _orangeAccentPrimaryValue() {
-      return 4294945600.0;
-    },
-    /*colors$.Colors.deepOrange*/get deepOrange() {
-      return C[287] || CT.C287;
-    },
-    /*colors$.Colors._deepOrangePrimaryValue*/get _deepOrangePrimaryValue() {
-      return 4294924066.0;
-    },
-    /*colors$.Colors.deepOrangeAccent*/get deepOrangeAccent() {
-      return C[299] || CT.C299;
-    },
-    /*colors$.Colors._deepOrangeAccentPrimaryValue*/get _deepOrangeAccentPrimaryValue() {
-      return 4294929984.0;
-    },
-    /*colors$.Colors.brown*/get brown() {
-      return C[305] || CT.C305;
-    },
-    /*colors$.Colors._brownPrimaryValue*/get _brownPrimaryValue() {
-      return 4286141768.0;
-    },
-    /*colors$.Colors.grey*/get grey() {
-      return C[317] || CT.C317;
-    },
-    /*colors$.Colors._greyPrimaryValue*/get _greyPrimaryValue() {
-      return 4288585374.0;
-    },
-    /*colors$.Colors.blueGrey*/get blueGrey() {
-      return C[331] || CT.C331;
-    },
-    /*colors$.Colors._blueGreyPrimaryValue*/get _blueGreyPrimaryValue() {
-      return 4284513675.0;
-    },
-    /*colors$.Colors.primaries*/get primaries() {
-      return C[343] || CT.C343;
-    },
-    /*colors$.Colors.accents*/get accents() {
-      return C[344] || CT.C344;
+    }
+    send() {
+      return async.async(streamed_response.StreamedResponse, (function* send() {
+        let client = client$.Client.new();
+        try {
+          let response = (yield client.send(this));
+          let stream = utils.onDone(T.ListOfint(), response.stream, dart.bind(client, 'close'));
+          return new streamed_response.StreamedResponse.new(new byte_stream.ByteStream.new(stream), response.statusCode, {contentLength: response.contentLength, request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
+        } catch (e) {
+          let _ = dart.getThrown(e);
+          if (core.Object.is(_)) {
+            client.close();
+            dart.rethrow(e);
+          } else
+            throw e;
+        }
+      }).bind(this));
+    }
+    [_checkFinalized]() {
+      if (!dart.test(this.finalized)) return;
+      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
+    }
+    toString() {
+      return dart.str(this.method) + " " + dart.str(this.url);
+    }
+  };
+  (base_request.BaseRequest.new = function(method, url) {
+    if (method == null) dart.nullFailed(I[1], 91, 20, "method");
+    if (url == null) dart.nullFailed(I[1], 91, 33, "url");
+    this[_contentLength] = null;
+    this[_persistentConnection] = true;
+    this[_followRedirects] = true;
+    this[_maxRedirects] = 5;
+    this[_finalized] = false;
+    this[method$] = method;
+    this[url$] = url;
+    this[headers] = T.LinkedHashMapOfString$String().new({equals: dart.fn((key1, key2) => {
+        if (key1 == null) dart.nullFailed(I[1], 93, 22, "key1");
+        if (key2 == null) dart.nullFailed(I[1], 93, 28, "key2");
+        return key1[$toLowerCase]() === key2[$toLowerCase]();
+      }, T.StringAndStringTobool()), hashCode: dart.fn(key => {
+        if (key == null) dart.nullFailed(I[1], 94, 24, "key");
+        return key[$toLowerCase]()[$hashCode];
+      }, T.StringToint())});
+    ;
+  }).prototype = base_request.BaseRequest.prototype;
+  dart.addTypeTests(base_request.BaseRequest);
+  dart.addTypeCaches(base_request.BaseRequest);
+  dart.setMethodSignature(base_request.BaseRequest, () => ({
+    __proto__: dart.getMethods(base_request.BaseRequest.__proto__),
+    finalize: dart.fnType(byte_stream.ByteStream, []),
+    send: dart.fnType(async.Future$(streamed_response.StreamedResponse), []),
+    [_checkFinalized]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(base_request.BaseRequest, () => ({
+    __proto__: dart.getGetters(base_request.BaseRequest.__proto__),
+    contentLength: dart.nullable(core.int),
+    persistentConnection: core.bool,
+    followRedirects: core.bool,
+    maxRedirects: core.int,
+    finalized: core.bool
+  }));
+  dart.setSetterSignature(base_request.BaseRequest, () => ({
+    __proto__: dart.getSetters(base_request.BaseRequest.__proto__),
+    contentLength: dart.nullable(core.int),
+    persistentConnection: core.bool,
+    followRedirects: core.bool,
+    maxRedirects: core.int
+  }));
+  dart.setLibraryUri(base_request.BaseRequest, I[2]);
+  dart.setFieldSignature(base_request.BaseRequest, () => ({
+    __proto__: dart.getFields(base_request.BaseRequest.__proto__),
+    method: dart.finalFieldType(core.String),
+    url: dart.finalFieldType(core.Uri),
+    [_contentLength]: dart.fieldType(dart.nullable(core.int)),
+    [_persistentConnection]: dart.fieldType(core.bool),
+    [_followRedirects]: dart.fieldType(core.bool),
+    [_maxRedirects]: dart.fieldType(core.int),
+    headers: dart.finalFieldType(core.Map$(core.String, core.String)),
+    [_finalized]: dart.fieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(base_request.BaseRequest, ['toString']);
+  multipart_request.MultipartRequest = class MultipartRequest extends base_request.BaseRequest {
+    get fields() {
+      return this[fields];
+    }
+    set fields(value) {
+      super.fields = value;
+    }
+    get files() {
+      return this[files];
+    }
+    set files(value) {
+      super.files = value;
+    }
+    get contentLength() {
+      let length = 0;
+      this.fields[$forEach](dart.fn((name, value) => {
+        if (name == null) dart.nullFailed(I[0], 57, 21, "name");
+        if (value == null) dart.nullFailed(I[0], 57, 27, "value");
+        length = length + ("--".length + 70 + "\r\n".length + dart.notNull(convert.utf8.encode(this[_headerForField](name, value))[$length]) + dart.notNull(convert.utf8.encode(value)[$length]) + "\r\n".length);
+      }, T.StringAndStringTovoid()));
+      for (let file of this.files) {
+        length = length + ("--".length + 70 + "\r\n".length + dart.notNull(convert.utf8.encode(this[_headerForFile](file))[$length]) + dart.notNull(file.length) + "\r\n".length);
+      }
+      return length + "--".length + 70 + "--\r\n".length;
+    }
+    set contentLength(value) {
+      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "multipart requests."));
+    }
+    finalize() {
+      let boundary = this[_boundaryString]();
+      this.headers[$_set]("content-type", "multipart/form-data; boundary=" + dart.str(boundary));
+      super.finalize();
+      return new byte_stream.ByteStream.new(this[_finalize](boundary));
+    }
+    [_finalize](boundary) {
+      if (boundary == null) dart.nullFailed(I[0], 95, 38, "boundary");
+      return new (T._AsyncStarImplOfListOfint()).new((function* _finalize(stream) {
+        let line = C[0] || CT.C0;
+        let separator = convert.utf8.encode("--" + dart.str(boundary) + "\r\n");
+        let close = convert.utf8.encode("--" + dart.str(boundary) + "--\r\n");
+        for (let field of this.fields[$entries]) {
+          if (stream.add(separator)) return;
+          yield;
+          if (stream.add(convert.utf8.encode(this[_headerForField](field.key, field.value)))) return;
+          yield;
+          if (stream.add(convert.utf8.encode(field.value))) return;
+          yield;
+          if (stream.add(line)) return;
+          yield;
+        }
+        for (let file of this.files) {
+          if (stream.add(separator)) return;
+          yield;
+          if (stream.add(convert.utf8.encode(this[_headerForFile](file)))) return;
+          yield;
+          if (stream.addStream(file.finalize())) return;
+          yield;
+          if (stream.add(line)) return;
+          yield;
+        }
+        if (stream.add(close)) return;
+        yield;
+      }).bind(this)).stream;
+    }
+    [_headerForField](name, value) {
+      if (name == null) dart.nullFailed(I[0], 119, 33, "name");
+      if (value == null) dart.nullFailed(I[0], 119, 46, "value");
+      let header = "content-disposition: form-data; name=\"" + dart.str(this[_browserEncode](name)) + "\"";
+      if (!dart.test(utils.isPlainAscii(value))) {
+        header = header + "\r\n" + "content-type: text/plain; charset=utf-8\r\n" + "content-transfer-encoding: binary";
+      }
+      return header + "\r\n\r\n";
+    }
+    [_headerForFile](file) {
+      if (file == null) dart.nullFailed(I[0], 133, 39, "file");
+      let header = "content-type: " + dart.str(file.contentType) + "\r\n" + "content-disposition: form-data; name=\"" + dart.str(this[_browserEncode](file.field)) + "\"";
+      if (file.filename != null) {
+        header = header + "; filename=\"" + dart.str(this[_browserEncode](dart.nullCheck(file.filename))) + "\"";
+      }
+      return header + "\r\n\r\n";
+    }
+    [_browserEncode](value) {
+      if (value == null) dart.nullFailed(I[0], 144, 32, "value");
+      return value[$replaceAll](multipart_request._newlineRegExp, "%0D%0A")[$replaceAll]("\"", "%22");
+    }
+    [_boundaryString]() {
+      let prefix = "dart-http-boundary-";
+      let list = T.ListOfint().generate(70 - prefix.length, dart.fn(index => {
+        if (index == null) dart.nullFailed(I[0], 157, 10, "index");
+        return boundary_characters.boundaryCharacters[$_get](multipart_request.MultipartRequest._random.nextInt(boundary_characters.boundaryCharacters[$length]));
+      }, T.intToint()), {growable: false});
+      return prefix + dart.str(core.String.fromCharCodes(list));
+    }
+  };
+  (multipart_request.MultipartRequest.new = function(method, url) {
+    if (method == null) dart.nullFailed(I[0], 48, 27, "method");
+    if (url == null) dart.nullFailed(I[0], 48, 39, "url");
+    this[fields] = new (T.IdentityMapOfString$String()).new();
+    this[files] = T.JSArrayOfMultipartFile().of([]);
+    multipart_request.MultipartRequest.__proto__.new.call(this, method, url);
+    ;
+  }).prototype = multipart_request.MultipartRequest.prototype;
+  dart.addTypeTests(multipart_request.MultipartRequest);
+  dart.addTypeCaches(multipart_request.MultipartRequest);
+  dart.setMethodSignature(multipart_request.MultipartRequest, () => ({
+    __proto__: dart.getMethods(multipart_request.MultipartRequest.__proto__),
+    [_finalize]: dart.fnType(async.Stream$(core.List$(core.int)), [core.String]),
+    [_headerForField]: dart.fnType(core.String, [core.String, core.String]),
+    [_headerForFile]: dart.fnType(core.String, [multipart_file.MultipartFile]),
+    [_browserEncode]: dart.fnType(core.String, [core.String]),
+    [_boundaryString]: dart.fnType(core.String, [])
+  }));
+  dart.setGetterSignature(multipart_request.MultipartRequest, () => ({
+    __proto__: dart.getGetters(multipart_request.MultipartRequest.__proto__),
+    contentLength: core.int
+  }));
+  dart.setLibraryUri(multipart_request.MultipartRequest, I[3]);
+  dart.setFieldSignature(multipart_request.MultipartRequest, () => ({
+    __proto__: dart.getFields(multipart_request.MultipartRequest.__proto__),
+    fields: dart.finalFieldType(core.Map$(core.String, core.String)),
+    files: dart.finalFieldType(core.List$(multipart_file.MultipartFile))
+  }));
+  dart.defineLazy(multipart_request.MultipartRequest, {
+    /*multipart_request.MultipartRequest._boundaryLength*/get _boundaryLength() {
+      return 70;
+    },
+    /*multipart_request.MultipartRequest._random*/get _random() {
+      return math.Random.new();
     }
   }, false);
-  dart.trackLibraries("packages/flutter/src/material/colors.dart", {
-    "package:flutter/src/material/colors.dart": colors$
+  dart.defineLazy(multipart_request, {
+    /*multipart_request._newlineRegExp*/get _newlineRegExp() {
+      return core.RegExp.new("\\r\\n|\\r|\\n");
+    }
+  }, false);
+  multipart_file_stub.multipartFileFromPath = function multipartFileFromPath(field, filePath, opts) {
+    if (field == null) dart.nullFailed(I[4], 9, 52, "field");
+    if (filePath == null) dart.nullFailed(I[4], 9, 66, "filePath");
+    let filename = opts && 'filename' in opts ? opts.filename : null;
+    let contentType = opts && 'contentType' in opts ? opts.contentType : null;
+    return dart.throw(new core.UnsupportedError.new("MultipartFile is only supported where dart:io is available."));
+  };
+  var field$ = dart.privateName(multipart_file, "MultipartFile.field");
+  var length$ = dart.privateName(multipart_file, "MultipartFile.length");
+  var filename$ = dart.privateName(multipart_file, "MultipartFile.filename");
+  var contentType$ = dart.privateName(multipart_file, "MultipartFile.contentType");
+  var _isFinalized = dart.privateName(multipart_file, "_isFinalized");
+  var _stream = dart.privateName(multipart_file, "_stream");
+  multipart_file.MultipartFile = class MultipartFile extends core.Object {
+    get field() {
+      return this[field$];
+    }
+    set field(value) {
+      super.field = value;
+    }
+    get length() {
+      return this[length$];
+    }
+    set length(value) {
+      super.length = value;
+    }
+    get filename() {
+      return this[filename$];
+    }
+    set filename(value) {
+      super.filename = value;
+    }
+    get contentType() {
+      return this[contentType$];
+    }
+    set contentType(value) {
+      super.contentType = value;
+    }
+    get isFinalized() {
+      return this[_isFinalized];
+    }
+    static fromBytes(field, value, opts) {
+      if (field == null) dart.nullFailed(I[5], 60, 42, "field");
+      if (value == null) dart.nullFailed(I[5], 60, 59, "value");
+      let filename = opts && 'filename' in opts ? opts.filename : null;
+      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
+      let stream = byte_stream.ByteStream.fromBytes(value);
+      return new multipart_file.MultipartFile.new(field, stream, value[$length], {filename: filename, contentType: contentType});
+    }
+    static fromString(field, value, opts) {
+      if (field == null) dart.nullFailed(I[5], 73, 43, "field");
+      if (value == null) dart.nullFailed(I[5], 73, 57, "value");
+      let filename = opts && 'filename' in opts ? opts.filename : null;
+      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
+      contentType == null ? contentType = new media_type.MediaType.new("text", "plain") : null;
+      let encoding = utils.encodingForCharset(contentType.parameters[$_get]("charset"), convert.utf8);
+      contentType = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", encoding.name])});
+      return multipart_file.MultipartFile.fromBytes(field, encoding.encode(value), {filename: filename, contentType: contentType});
+    }
+    static fromPath(field, filePath, opts) {
+      if (field == null) dart.nullFailed(I[5], 92, 48, "field");
+      if (filePath == null) dart.nullFailed(I[5], 92, 62, "filePath");
+      let filename = opts && 'filename' in opts ? opts.filename : null;
+      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
+      return multipart_file_stub.multipartFileFromPath(field, filePath, {filename: filename, contentType: contentType});
+    }
+    finalize() {
+      if (dart.test(this.isFinalized)) {
+        dart.throw(new core.StateError.new("Can't finalize a finalized MultipartFile."));
+      }
+      this[_isFinalized] = true;
+      return this[_stream];
+    }
+  };
+  (multipart_file.MultipartFile.new = function(field, stream, length, opts) {
+    let t1;
+    if (field == null) dart.nullFailed(I[5], 51, 22, "field");
+    if (stream == null) dart.nullFailed(I[5], 51, 47, "stream");
+    if (length == null) dart.nullFailed(I[5], 51, 60, "length");
+    let filename = opts && 'filename' in opts ? opts.filename : null;
+    let contentType = opts && 'contentType' in opts ? opts.contentType : null;
+    this[_isFinalized] = false;
+    this[field$] = field;
+    this[length$] = length;
+    this[filename$] = filename;
+    this[_stream] = utils.toByteStream(stream);
+    this[contentType$] = (t1 = contentType, t1 == null ? new media_type.MediaType.new("application", "octet-stream") : t1);
+    ;
+  }).prototype = multipart_file.MultipartFile.prototype;
+  dart.addTypeTests(multipart_file.MultipartFile);
+  dart.addTypeCaches(multipart_file.MultipartFile);
+  dart.setMethodSignature(multipart_file.MultipartFile, () => ({
+    __proto__: dart.getMethods(multipart_file.MultipartFile.__proto__),
+    finalize: dart.fnType(byte_stream.ByteStream, [])
+  }));
+  dart.setGetterSignature(multipart_file.MultipartFile, () => ({
+    __proto__: dart.getGetters(multipart_file.MultipartFile.__proto__),
+    isFinalized: core.bool
+  }));
+  dart.setLibraryUri(multipart_file.MultipartFile, I[6]);
+  dart.setFieldSignature(multipart_file.MultipartFile, () => ({
+    __proto__: dart.getFields(multipart_file.MultipartFile.__proto__),
+    field: dart.finalFieldType(core.String),
+    length: dart.finalFieldType(core.int),
+    filename: dart.finalFieldType(dart.nullable(core.String)),
+    contentType: dart.finalFieldType(media_type.MediaType),
+    [_stream]: dart.finalFieldType(byte_stream.ByteStream),
+    [_isFinalized]: dart.fieldType(core.bool)
+  }));
+  var _controller = dart.privateName(streamed_request, "_controller");
+  streamed_request.StreamedRequest = class StreamedRequest extends base_request.BaseRequest {
+    get sink() {
+      return this[_controller].sink;
+    }
+    finalize() {
+      super.finalize();
+      return new byte_stream.ByteStream.new(this[_controller].stream);
+    }
+  };
+  (streamed_request.StreamedRequest.new = function(method, url) {
+    if (method == null) dart.nullFailed(I[7], 32, 26, "method");
+    if (url == null) dart.nullFailed(I[7], 32, 38, "url");
+    this[_controller] = T.StreamControllerOfListOfint().new({sync: true});
+    streamed_request.StreamedRequest.__proto__.new.call(this, method, url);
+    ;
+  }).prototype = streamed_request.StreamedRequest.prototype;
+  dart.addTypeTests(streamed_request.StreamedRequest);
+  dart.addTypeCaches(streamed_request.StreamedRequest);
+  dart.setGetterSignature(streamed_request.StreamedRequest, () => ({
+    __proto__: dart.getGetters(streamed_request.StreamedRequest.__proto__),
+    sink: async.EventSink$(core.List$(core.int))
+  }));
+  dart.setLibraryUri(streamed_request.StreamedRequest, I[8]);
+  dart.setFieldSignature(streamed_request.StreamedRequest, () => ({
+    __proto__: dart.getFields(streamed_request.StreamedRequest.__proto__),
+    [_controller]: dart.finalFieldType(async.StreamController$(core.List$(core.int)))
+  }));
+  var withCredentials = dart.privateName(browser_client, "BrowserClient.withCredentials");
+  var _xhrs = dart.privateName(browser_client, "_xhrs");
+  var _sendUnstreamed = dart.privateName(base_client, "_sendUnstreamed");
+  var _checkResponseSuccess = dart.privateName(base_client, "_checkResponseSuccess");
+  base_client.BaseClient = class BaseClient extends core.Object {
+    head(url, opts) {
+      if (url == null) dart.nullFailed(I[10], 22, 29, "url");
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      return this[_sendUnstreamed]("HEAD", url, headers);
+    }
+    get(url, opts) {
+      if (url == null) dart.nullFailed(I[10], 26, 28, "url");
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      return this[_sendUnstreamed]("GET", url, headers);
+    }
+    post(url, opts) {
+      if (url == null) dart.nullFailed(I[10], 30, 29, "url");
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      let body = opts && 'body' in opts ? opts.body : null;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+      return this[_sendUnstreamed]("POST", url, headers, body, encoding);
+    }
+    put(url, opts) {
+      if (url == null) dart.nullFailed(I[10], 35, 28, "url");
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      let body = opts && 'body' in opts ? opts.body : null;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+      return this[_sendUnstreamed]("PUT", url, headers, body, encoding);
+    }
+    patch(url, opts) {
+      if (url == null) dart.nullFailed(I[10], 40, 30, "url");
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      let body = opts && 'body' in opts ? opts.body : null;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+      return this[_sendUnstreamed]("PATCH", url, headers, body, encoding);
+    }
+    delete(url, opts) {
+      if (url == null) dart.nullFailed(I[10], 45, 31, "url");
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      let body = opts && 'body' in opts ? opts.body : null;
+      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+      return this[_sendUnstreamed]("DELETE", url, headers, body, encoding);
+    }
+    read(url, opts) {
+      if (url == null) dart.nullFailed(I[10], 50, 27, "url");
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      return async.async(core.String, (function* read() {
+        let response = (yield this.get(url, {headers: headers}));
+        this[_checkResponseSuccess](url, response);
+        return response.body;
+      }).bind(this));
+    }
+    readBytes(url, opts) {
+      if (url == null) dart.nullFailed(I[10], 57, 35, "url");
+      let headers = opts && 'headers' in opts ? opts.headers : null;
+      return async.async(typed_data.Uint8List, (function* readBytes() {
+        let response = (yield this.get(url, {headers: headers}));
+        this[_checkResponseSuccess](url, response);
+        return response.bodyBytes;
+      }).bind(this));
+    }
+    [_sendUnstreamed](method, url, headers, body = null, encoding = null) {
+      if (method == null) dart.nullFailed(I[10], 75, 14, "method");
+      if (url == null) dart.nullFailed(I[10], 75, 26, "url");
+      return async.async(response$.Response, (function* _sendUnstreamed() {
+        let request = new request$.Request.new(method, url);
+        if (headers != null) request.headers[$addAll](headers);
+        if (encoding != null) request.encoding = encoding;
+        if (body != null) {
+          if (typeof body == 'string') {
+            request.body = body;
+          } else if (core.List.is(body)) {
+            request.bodyBytes = body[$cast](core.int);
+          } else if (core.Map.is(body)) {
+            request.bodyFields = body[$cast](core.String, core.String);
+          } else {
+            dart.throw(new core.ArgumentError.new("Invalid request body \"" + dart.str(body) + "\"."));
+          }
+        }
+        return response$.Response.fromStream(yield this.send(request));
+      }).bind(this));
+    }
+    [_checkResponseSuccess](url, response) {
+      if (url == null) dart.nullFailed(I[10], 97, 34, "url");
+      if (response == null) dart.nullFailed(I[10], 97, 48, "response");
+      if (dart.notNull(response.statusCode) < 400) return;
+      let message = "Request to " + dart.str(url) + " failed with status " + dart.str(response.statusCode);
+      if (response.reasonPhrase != null) {
+        message = message + ": " + dart.str(response.reasonPhrase);
+      }
+      dart.throw(new exception.ClientException.new(message + ".", url));
+    }
+    close() {
+    }
+  };
+  (base_client.BaseClient.new = function() {
+    ;
+  }).prototype = base_client.BaseClient.prototype;
+  dart.addTypeTests(base_client.BaseClient);
+  dart.addTypeCaches(base_client.BaseClient);
+  base_client.BaseClient[dart.implements] = () => [client$.Client];
+  dart.setMethodSignature(base_client.BaseClient, () => ({
+    __proto__: dart.getMethods(base_client.BaseClient.__proto__),
+    head: dart.fnType(async.Future$(response$.Response), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
+    get: dart.fnType(async.Future$(response$.Response), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
+    post: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
+    put: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
+    patch: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
+    delete: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
+    read: dart.fnType(async.Future$(core.String), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
+    readBytes: dart.fnType(async.Future$(typed_data.Uint8List), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
+    [_sendUnstreamed]: dart.fnType(async.Future$(response$.Response), [core.String, core.Uri, dart.nullable(core.Map$(core.String, core.String))], [dart.dynamic, dart.nullable(convert.Encoding)]),
+    [_checkResponseSuccess]: dart.fnType(dart.void, [core.Uri, response$.Response]),
+    close: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(base_client.BaseClient, I[11]);
+  browser_client.BrowserClient = class BrowserClient extends base_client.BaseClient {
+    get withCredentials() {
+      return this[withCredentials];
+    }
+    set withCredentials(value) {
+      this[withCredentials] = value;
+    }
+    send(request) {
+      if (request == null) dart.nullFailed(I[9], 44, 45, "request");
+      return async.async(streamed_response.StreamedResponse, (function* send() {
+        let t1;
+        let bytes = (yield request.finalize().toBytes());
+        let xhr = html.HttpRequest.new();
+        this[_xhrs].add(xhr);
+        t1 = xhr;
+        (() => {
+          t1.open(request.method, dart.str(request.url), {async: true});
+          t1.responseType = "arraybuffer";
+          t1.withCredentials = this.withCredentials;
+          return t1;
+        })();
+        request.headers[$forEach](dart.bind(xhr, 'setRequestHeader'));
+        let completer = T.CompleterOfStreamedResponse().new();
+        pedantic.unawaited(xhr[$onLoad].first.then(dart.void, dart.fn(_ => {
+          if (_ == null) dart.nullFailed(I[9], 56, 38, "_");
+          let body = typed_data.ByteBuffer.as(xhr[$response])[$asUint8List]();
+          completer.complete(new streamed_response.StreamedResponse.new(byte_stream.ByteStream.fromBytes(body), dart.nullCheck(xhr.status), {contentLength: body[$length], request: request, headers: xhr[$responseHeaders], reasonPhrase: xhr.statusText}));
+        }, T.ProgressEventToNull())));
+        pedantic.unawaited(xhr[$onError].first.then(dart.void, dart.fn(_ => {
+          if (_ == null) dart.nullFailed(I[9], 66, 39, "_");
+          completer.completeError(new exception.ClientException.new("XMLHttpRequest error.", request.url), core.StackTrace.current);
+        }, T.ProgressEventToNull())));
+        xhr.send(bytes);
+        try {
+          return yield completer.future;
+        } finally {
+          this[_xhrs].remove(xhr);
+        }
+      }).bind(this));
+    }
+    close() {
+      for (let xhr of this[_xhrs]) {
+        xhr.abort();
+      }
+    }
+  };
+  (browser_client.BrowserClient.new = function() {
+    this[_xhrs] = T.LinkedHashSetOfHttpRequest().new();
+    this[withCredentials] = false;
+    ;
+  }).prototype = browser_client.BrowserClient.prototype;
+  dart.addTypeTests(browser_client.BrowserClient);
+  dart.addTypeCaches(browser_client.BrowserClient);
+  dart.setMethodSignature(browser_client.BrowserClient, () => ({
+    __proto__: dart.getMethods(browser_client.BrowserClient.__proto__),
+    send: dart.fnType(async.Future$(streamed_response.StreamedResponse), [base_request.BaseRequest])
+  }));
+  dart.setLibraryUri(browser_client.BrowserClient, I[12]);
+  dart.setFieldSignature(browser_client.BrowserClient, () => ({
+    __proto__: dart.getFields(browser_client.BrowserClient.__proto__),
+    [_xhrs]: dart.finalFieldType(core.Set$(html.HttpRequest)),
+    withCredentials: dart.fieldType(core.bool)
+  }));
+  browser_client.createClient = function createClient() {
+    return new browser_client.BrowserClient.new();
+  };
+  var bodyBytes$ = dart.privateName(response$, "Response.bodyBytes");
+  var request$0 = dart.privateName(base_response, "BaseResponse.request");
+  var statusCode$ = dart.privateName(base_response, "BaseResponse.statusCode");
+  var reasonPhrase$ = dart.privateName(base_response, "BaseResponse.reasonPhrase");
+  var contentLength$ = dart.privateName(base_response, "BaseResponse.contentLength");
+  var headers$ = dart.privateName(base_response, "BaseResponse.headers");
+  var isRedirect$ = dart.privateName(base_response, "BaseResponse.isRedirect");
+  var persistentConnection$ = dart.privateName(base_response, "BaseResponse.persistentConnection");
+  base_response.BaseResponse = class BaseResponse extends core.Object {
+    get request() {
+      return this[request$0];
+    }
+    set request(value) {
+      super.request = value;
+    }
+    get statusCode() {
+      return this[statusCode$];
+    }
+    set statusCode(value) {
+      super.statusCode = value;
+    }
+    get reasonPhrase() {
+      return this[reasonPhrase$];
+    }
+    set reasonPhrase(value) {
+      super.reasonPhrase = value;
+    }
+    get contentLength() {
+      return this[contentLength$];
+    }
+    set contentLength(value) {
+      super.contentLength = value;
+    }
+    get headers() {
+      return this[headers$];
+    }
+    set headers(value) {
+      super.headers = value;
+    }
+    get isRedirect() {
+      return this[isRedirect$];
+    }
+    set isRedirect(value) {
+      super.isRedirect = value;
+    }
+    get persistentConnection() {
+      return this[persistentConnection$];
+    }
+    set persistentConnection(value) {
+      super.persistentConnection = value;
+    }
+  };
+  (base_response.BaseResponse.new = function(statusCode, opts) {
+    if (statusCode == null) dart.nullFailed(I[14], 37, 21, "statusCode");
+    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
+    let request = opts && 'request' in opts ? opts.request : null;
+    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
+    if (headers == null) dart.nullFailed(I[14], 40, 12, "headers");
+    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
+    if (isRedirect == null) dart.nullFailed(I[14], 41, 12, "isRedirect");
+    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
+    if (persistentConnection == null) dart.nullFailed(I[14], 42, 12, "persistentConnection");
+    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
+    this[statusCode$] = statusCode;
+    this[contentLength$] = contentLength;
+    this[request$0] = request;
+    this[headers$] = headers;
+    this[isRedirect$] = isRedirect;
+    this[persistentConnection$] = persistentConnection;
+    this[reasonPhrase$] = reasonPhrase;
+    if (dart.notNull(this.statusCode) < 100) {
+      dart.throw(new core.ArgumentError.new("Invalid status code " + dart.str(this.statusCode) + "."));
+    } else if (this.contentLength != null && dart.nullCheck(this.contentLength) < 0) {
+      dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(this.contentLength) + "."));
+    }
+  }).prototype = base_response.BaseResponse.prototype;
+  dart.addTypeTests(base_response.BaseResponse);
+  dart.addTypeCaches(base_response.BaseResponse);
+  dart.setLibraryUri(base_response.BaseResponse, I[15]);
+  dart.setFieldSignature(base_response.BaseResponse, () => ({
+    __proto__: dart.getFields(base_response.BaseResponse.__proto__),
+    request: dart.finalFieldType(dart.nullable(base_request.BaseRequest)),
+    statusCode: dart.finalFieldType(core.int),
+    reasonPhrase: dart.finalFieldType(dart.nullable(core.String)),
+    contentLength: dart.finalFieldType(dart.nullable(core.int)),
+    headers: dart.finalFieldType(core.Map$(core.String, core.String)),
+    isRedirect: dart.finalFieldType(core.bool),
+    persistentConnection: dart.finalFieldType(core.bool)
+  }));
+  response$.Response = class Response extends base_response.BaseResponse {
+    get bodyBytes() {
+      return this[bodyBytes$];
+    }
+    set bodyBytes(value) {
+      super.bodyBytes = value;
+    }
+    get body() {
+      return response$._encodingForHeaders(this.headers).decode(this.bodyBytes);
+    }
+    static fromStream(response) {
+      if (response == null) dart.nullFailed(I[13], 62, 55, "response");
+      return async.async(response$.Response, function* fromStream() {
+        let body = (yield response.stream.toBytes());
+        return new response$.Response.bytes(body, response.statusCode, {request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
+      });
+    }
+  };
+  (response$.Response.new = function(body, statusCode, opts) {
+    if (body == null) dart.nullFailed(I[13], 31, 19, "body");
+    if (statusCode == null) dart.nullFailed(I[13], 31, 29, "statusCode");
+    let request = opts && 'request' in opts ? opts.request : null;
+    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
+    if (headers == null) dart.nullFailed(I[13], 33, 27, "headers");
+    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
+    if (isRedirect == null) dart.nullFailed(I[13], 34, 12, "isRedirect");
+    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
+    if (persistentConnection == null) dart.nullFailed(I[13], 35, 12, "persistentConnection");
+    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
+    response$.Response.bytes.call(this, response$._encodingForHeaders(headers).encode(body), statusCode, {request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
+  }).prototype = response$.Response.prototype;
+  (response$.Response.bytes = function(bodyBytes, statusCode, opts) {
+    if (bodyBytes == null) dart.nullFailed(I[13], 45, 28, "bodyBytes");
+    if (statusCode == null) dart.nullFailed(I[13], 45, 43, "statusCode");
+    let request = opts && 'request' in opts ? opts.request : null;
+    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
+    if (headers == null) dart.nullFailed(I[13], 47, 27, "headers");
+    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
+    if (isRedirect == null) dart.nullFailed(I[13], 48, 12, "isRedirect");
+    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
+    if (persistentConnection == null) dart.nullFailed(I[13], 49, 12, "persistentConnection");
+    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
+    this[bodyBytes$] = utils.toUint8List(bodyBytes);
+    response$.Response.__proto__.new.call(this, statusCode, {contentLength: bodyBytes[$length], request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
+    ;
+  }).prototype = response$.Response.prototype;
+  dart.addTypeTests(response$.Response);
+  dart.addTypeCaches(response$.Response);
+  dart.setGetterSignature(response$.Response, () => ({
+    __proto__: dart.getGetters(response$.Response.__proto__),
+    body: core.String
+  }));
+  dart.setLibraryUri(response$.Response, I[16]);
+  dart.setFieldSignature(response$.Response, () => ({
+    __proto__: dart.getFields(response$.Response.__proto__),
+    bodyBytes: dart.finalFieldType(typed_data.Uint8List)
+  }));
+  response$._encodingForHeaders = function _encodingForHeaders(headers) {
+    if (headers == null) dart.nullFailed(I[13], 77, 50, "headers");
+    return utils.encodingForCharset(response$._contentTypeForHeaders(headers).parameters[$_get]("charset"));
+  };
+  response$._contentTypeForHeaders = function _contentTypeForHeaders(headers) {
+    if (headers == null) dart.nullFailed(I[13], 83, 54, "headers");
+    let contentType = headers[$_get]("content-type");
+    if (contentType != null) return media_type.MediaType.parse(contentType);
+    return new media_type.MediaType.new("application", "octet-stream");
+  };
+  var _defaultEncoding = dart.privateName(request$, "_defaultEncoding");
+  var _bodyBytes = dart.privateName(request$, "_bodyBytes");
+  var _contentType = dart.privateName(request$, "_contentType");
+  var _checkFinalized$ = dart.privateName(request$, "_checkFinalized");
+  request$.Request = class Request extends base_request.BaseRequest {
+    get contentLength() {
+      return this.bodyBytes[$length];
+    }
+    set contentLength(value) {
+      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "non-streaming Request objects."));
+    }
+    get encoding() {
+      if (this[_contentType] == null || !dart.test(dart.nullCheck(this[_contentType]).parameters[$containsKey]("charset"))) {
+        return this[_defaultEncoding];
+      }
+      return utils.requiredEncodingForCharset(dart.nullCheck(dart.nullCheck(this[_contentType]).parameters[$_get]("charset")));
+    }
+    set encoding(value) {
+      if (value == null) dart.nullFailed(I[17], 59, 25, "value");
+      this[_checkFinalized$]();
+      this[_defaultEncoding] = value;
+      let contentType = this[_contentType];
+      if (contentType == null) return;
+      this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", value.name])});
+    }
+    get bodyBytes() {
+      return this[_bodyBytes];
+    }
+    set bodyBytes(value) {
+      if (value == null) dart.nullFailed(I[17], 76, 27, "value");
+      this[_checkFinalized$]();
+      this[_bodyBytes] = utils.toUint8List(value);
+    }
+    get body() {
+      return this.encoding.decode(this.bodyBytes);
+    }
+    set body(value) {
+      if (value == null) dart.nullFailed(I[17], 91, 19, "value");
+      this.bodyBytes = this.encoding.encode(value);
+      let contentType = this[_contentType];
+      if (contentType == null) {
+        this[_contentType] = new media_type.MediaType.new("text", "plain", new (T.IdentityMapOfString$String()).from(["charset", this.encoding.name]));
+      } else if (!dart.test(contentType.parameters[$containsKey]("charset"))) {
+        this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", this.encoding.name])});
+      }
+    }
+    get bodyFields() {
+      let contentType = this[_contentType];
+      if (contentType == null || contentType.mimeType !== "application/x-www-form-urlencoded") {
+        dart.throw(new core.StateError.new("Cannot access the body fields of a Request without " + "content-type \"application/x-www-form-urlencoded\"."));
+      }
+      return core.Uri.splitQueryString(this.body, {encoding: this.encoding});
+    }
+    set bodyFields(fields) {
+      if (fields == null) dart.nullFailed(I[17], 128, 38, "fields");
+      let contentType = this[_contentType];
+      if (contentType == null) {
+        this[_contentType] = new media_type.MediaType.new("application", "x-www-form-urlencoded");
+      } else if (contentType.mimeType !== "application/x-www-form-urlencoded") {
+        dart.throw(new core.StateError.new("Cannot set the body fields of a Request with " + "content-type \"" + dart.str(contentType.mimeType) + "\"."));
+      }
+      this.body = utils.mapToQuery(fields, {encoding: this.encoding});
+    }
+    finalize() {
+      super.finalize();
+      return byte_stream.ByteStream.fromBytes(this.bodyBytes);
+    }
+    get [_contentType]() {
+      let contentType = this.headers[$_get]("content-type");
+      if (contentType == null) return null;
+      return media_type.MediaType.parse(contentType);
+    }
+    set [_contentType](value) {
+      if (value == null) {
+        this.headers[$remove]("content-type");
+      } else {
+        this.headers[$_set]("content-type", dart.toString(value));
+      }
+    }
+    [_checkFinalized$]() {
+      if (!dart.test(this.finalized)) return;
+      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
+    }
+  };
+  (request$.Request.new = function(method, url) {
+    if (method == null) dart.nullFailed(I[17], 140, 18, "method");
+    if (url == null) dart.nullFailed(I[17], 140, 30, "url");
+    this[_defaultEncoding] = convert.utf8;
+    this[_bodyBytes] = _native_typed_data.NativeUint8List.new(0);
+    request$.Request.__proto__.new.call(this, method, url);
+    ;
+  }).prototype = request$.Request.prototype;
+  dart.addTypeTests(request$.Request);
+  dart.addTypeCaches(request$.Request);
+  dart.setMethodSignature(request$.Request, () => ({
+    __proto__: dart.getMethods(request$.Request.__proto__),
+    [_checkFinalized$]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(request$.Request, () => ({
+    __proto__: dart.getGetters(request$.Request.__proto__),
+    contentLength: core.int,
+    encoding: convert.Encoding,
+    bodyBytes: typed_data.Uint8List,
+    body: core.String,
+    bodyFields: core.Map$(core.String, core.String),
+    [_contentType]: dart.nullable(media_type.MediaType)
+  }));
+  dart.setSetterSignature(request$.Request, () => ({
+    __proto__: dart.getSetters(request$.Request.__proto__),
+    encoding: convert.Encoding,
+    bodyBytes: core.List$(core.int),
+    body: core.String,
+    bodyFields: core.Map$(core.String, core.String),
+    [_contentType]: dart.nullable(media_type.MediaType)
+  }));
+  dart.setLibraryUri(request$.Request, I[18]);
+  dart.setFieldSignature(request$.Request, () => ({
+    __proto__: dart.getFields(request$.Request.__proto__),
+    [_defaultEncoding]: dart.fieldType(convert.Encoding),
+    [_bodyBytes]: dart.fieldType(typed_data.Uint8List)
+  }));
+  var stream$ = dart.privateName(streamed_response, "StreamedResponse.stream");
+  streamed_response.StreamedResponse = class StreamedResponse extends base_response.BaseResponse {
+    get stream() {
+      return this[stream$];
+    }
+    set stream(value) {
+      super.stream = value;
+    }
+  };
+  (streamed_response.StreamedResponse.new = function(stream, statusCode, opts) {
+    if (stream == null) dart.nullFailed(I[19], 21, 38, "stream");
+    if (statusCode == null) dart.nullFailed(I[19], 21, 50, "statusCode");
+    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
+    let request = opts && 'request' in opts ? opts.request : null;
+    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
+    if (headers == null) dart.nullFailed(I[19], 24, 27, "headers");
+    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
+    if (isRedirect == null) dart.nullFailed(I[19], 25, 12, "isRedirect");
+    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
+    if (persistentConnection == null) dart.nullFailed(I[19], 26, 12, "persistentConnection");
+    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
+    this[stream$] = utils.toByteStream(stream);
+    streamed_response.StreamedResponse.__proto__.new.call(this, statusCode, {contentLength: contentLength, request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
+    ;
+  }).prototype = streamed_response.StreamedResponse.prototype;
+  dart.addTypeTests(streamed_response.StreamedResponse);
+  dart.addTypeCaches(streamed_response.StreamedResponse);
+  dart.setLibraryUri(streamed_response.StreamedResponse, I[20]);
+  dart.setFieldSignature(streamed_response.StreamedResponse, () => ({
+    __proto__: dart.getFields(streamed_response.StreamedResponse.__proto__),
+    stream: dart.finalFieldType(byte_stream.ByteStream)
+  }));
+  client$.Client = class Client extends core.Object {
+    static new() {
+      return browser_client.createClient();
+    }
+  };
+  (client$.Client[dart.mixinNew] = function() {
+  }).prototype = client$.Client.prototype;
+  dart.addTypeTests(client$.Client);
+  dart.addTypeCaches(client$.Client);
+  dart.setLibraryUri(client$.Client, I[21]);
+  http.head = function head(url, opts) {
+    if (url == null) dart.nullFailed(I[22], 35, 27, "url");
+    let headers = opts && 'headers' in opts ? opts.headers : null;
+    return http._withClient(response$.Response, dart.fn(client => {
+      if (client == null) dart.nullFailed(I[22], 36, 18, "client");
+      return client.head(url, {headers: headers});
+    }, T.ClientToFutureOfResponse()));
+  };
+  http.get = function get(url, opts) {
+    if (url == null) dart.nullFailed(I[22], 45, 26, "url");
+    let headers = opts && 'headers' in opts ? opts.headers : null;
+    return http._withClient(response$.Response, dart.fn(client => {
+      if (client == null) dart.nullFailed(I[22], 46, 18, "client");
+      return client.get(url, {headers: headers});
+    }, T.ClientToFutureOfResponse()));
+  };
+  http.post = function post(url, opts) {
+    if (url == null) dart.nullFailed(I[22], 66, 27, "url");
+    let headers = opts && 'headers' in opts ? opts.headers : null;
+    let body = opts && 'body' in opts ? opts.body : null;
+    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+    return http._withClient(response$.Response, dart.fn(client => {
+      if (client == null) dart.nullFailed(I[22], 68, 18, "client");
+      return client.post(url, {headers: headers, body: body, encoding: encoding});
+    }, T.ClientToFutureOfResponse()));
+  };
+  http.put = function put(url, opts) {
+    if (url == null) dart.nullFailed(I[22], 89, 26, "url");
+    let headers = opts && 'headers' in opts ? opts.headers : null;
+    let body = opts && 'body' in opts ? opts.body : null;
+    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+    return http._withClient(response$.Response, dart.fn(client => {
+      if (client == null) dart.nullFailed(I[22], 91, 18, "client");
+      return client.put(url, {headers: headers, body: body, encoding: encoding});
+    }, T.ClientToFutureOfResponse()));
+  };
+  http.patch = function patch(url, opts) {
+    if (url == null) dart.nullFailed(I[22], 113, 28, "url");
+    let headers = opts && 'headers' in opts ? opts.headers : null;
+    let body = opts && 'body' in opts ? opts.body : null;
+    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+    return http._withClient(response$.Response, dart.fn(client => {
+      if (client == null) dart.nullFailed(I[22], 115, 18, "client");
+      return client.patch(url, {headers: headers, body: body, encoding: encoding});
+    }, T.ClientToFutureOfResponse()));
+  };
+  http.delete = function $delete(url, opts) {
+    if (url == null) dart.nullFailed(I[22], 125, 29, "url");
+    let headers = opts && 'headers' in opts ? opts.headers : null;
+    let body = opts && 'body' in opts ? opts.body : null;
+    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
+    return http._withClient(response$.Response, dart.fn(client => {
+      if (client == null) dart.nullFailed(I[22], 127, 18, "client");
+      return client.delete(url, {headers: headers, body: body, encoding: encoding});
+    }, T.ClientToFutureOfResponse()));
+  };
+  http.read = function read(url, opts) {
+    if (url == null) dart.nullFailed(I[22], 142, 25, "url");
+    let headers = opts && 'headers' in opts ? opts.headers : null;
+    return http._withClient(core.String, dart.fn(client => {
+      if (client == null) dart.nullFailed(I[22], 143, 18, "client");
+      return client.read(url, {headers: headers});
+    }, T.ClientToFutureOfString()));
+  };
+  http.readBytes = function readBytes(url, opts) {
+    if (url == null) dart.nullFailed(I[22], 158, 33, "url");
+    let headers = opts && 'headers' in opts ? opts.headers : null;
+    return http._withClient(typed_data.Uint8List, dart.fn(client => {
+      if (client == null) dart.nullFailed(I[22], 159, 18, "client");
+      return client.readBytes(url, {headers: headers});
+    }, T.ClientToFutureOfUint8List()));
+  };
+  http._withClient = function _withClient(T, fn) {
+    if (fn == null) dart.nullFailed(I[22], 161, 53, "fn");
+    return async.async(T, function* _withClient() {
+      let client = client$.Client.new();
+      try {
+        return yield fn(client);
+      } finally {
+        client.close();
+      }
+    });
+  };
+  dart.trackLibraries("packages/http/src/multipart_request.dart", {
+    "package:http/src/multipart_request.dart": multipart_request,
+    "package:http/src/multipart_file_stub.dart": multipart_file_stub,
+    "package:http/src/multipart_file.dart": multipart_file,
+    "package:http/src/streamed_request.dart": streamed_request,
+    "package:http/src/browser_client.dart": browser_client,
+    "package:http/src/response.dart": response$,
+    "package:http/src/request.dart": request$,
+    "package:http/src/streamed_response.dart": streamed_response,
+    "package:http/src/base_response.dart": base_response,
+    "package:http/src/base_request.dart": base_request,
+    "package:http/src/base_client.dart": base_client,
+    "package:http/src/client.dart": client$,
+    "package:http/http.dart": http
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["colors.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../../../../../../packages/flutter/src/material/colors.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["base_request.dart","multipart_request.dart","multipart_file_stub.dart","multipart_file.dart","streamed_request.dart","base_client.dart","browser_client.dart","base_response.dart","response.dart","request.dart","streamed_response.dart","client.dart","../http.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../packages/http/src/multipart_request.dart.lib.js"}');
   // Exports:
   return {
-    src__material__colors: colors$
+    src__multipart_request: multipart_request,
+    src__multipart_file_stub: multipart_file_stub,
+    src__multipart_file: multipart_file,
+    src__streamed_request: streamed_request,
+    src__browser_client: browser_client,
+    src__response: response$,
+    src__request: request$,
+    src__streamed_response: streamed_response,
+    src__base_response: base_response,
+    src__base_request: base_request,
+    src__base_client: base_client,
+    src__client: client$,
+    http: http
   };
 }));
 
-//# sourceMappingURL=colors.dart.lib.js.map
+//# sourceMappingURL=multipart_request.dart.lib.js.map
