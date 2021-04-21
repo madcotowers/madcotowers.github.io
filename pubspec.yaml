@@ -29,7 +29,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  assets_audio_player: ^2.0.4+2
+  assets_audio_player: ^3.0.3+1
+  just_audio: ^0.7.3
+
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +53,7 @@ flutter:
     - 'assets/MCHS-Identity-WHiteText-340-300x134.png'
     - assets/
     - assets/textFiles/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
