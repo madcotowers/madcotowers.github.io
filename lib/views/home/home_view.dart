@@ -8,18 +8,6 @@ import 'package:madcotowers_1/widgets/township_carousel.dart';
 class HomeView extends StatefulWidget {
   const HomeView({Key key}) : super(key: key);
 
-  static const List<String> townships = [
-    'Alton',
-    'Edwardsville',
-    'TW3',
-    'TW4',
-    'TW5',
-    'TW6',
-    'TW7',
-    'TW8',
-    'TW9'
-  ];
-
   @override
   _HomeViewState createState() => _HomeViewState();
 }

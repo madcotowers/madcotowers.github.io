@@ -32,6 +32,7 @@ dependencies:
   assets_audio_player: ^3.0.3+1
   just_audio: ^0.7.3
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -51,6 +52,8 @@ flutter:
   assets:
     - 'assets/MCHS-Identity-WHiteText-340-300x134.png'
     - assets/
+    - assets/textFiles/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

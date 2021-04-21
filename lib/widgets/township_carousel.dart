@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'package:flutter/material.dart';
-import 'package:madcotowers_1/views/TownshipMenu/townshipMenu.dart';
+import 'package:madcotowers_1/views/AudioPlayer/audio_player_background_playlist.dart';
+//import 'package:madcotowers_1/views/TownshipMenu/townshipMenu.dart';
 import 'package:madcotowers_1/CustomMaterialColor.dart';
 
 class TownshipCarousel extends StatelessWidget {
@@ -8,14 +9,15 @@ class TownshipCarousel extends StatelessWidget {
       CustomMaterialColor().createMaterialColor(Color(0xFF8b0d04));
   final List<String> townships = [
     'Alton',
-    'Edwardsville',
-    'Township 3',
-    'Township 4',
-    'Township 5',
-    'Township 6',
-    'Township 7',
-    'Township 8',
-    'Township 9',
+    'Foster',
+    'Godfrey',
+    'Hamel',
+    'Moro',
+    'New Douglas-Leef',
+    'New Fort Russel',
+    'Omphegent - Olive',
+    'The Gentile Giant',
+    'Venice'
   ];
 
   @override
@@ -35,9 +37,13 @@ class TownshipCarousel extends StatelessWidget {
                       var pageNavigatedTo = await Navigator.push(
                           context,
                           new MaterialPageRoute(
-                              builder: (context) => TownshipMenu(
+                              builder: (context) =>
+                                  /*TownshipMenu(
                                     township: townships[index],
-                                  ))); //navigates to township menu page, awaits result, then stores the destination
+                                  )*/
+                                  AudioPlayerBackgroundPlaylist(
+                                      index:
+                                          index))); //navigates to township menu page, awaits result, then stores the destination
                     },
                     child: Card(
                       color: customColor,
