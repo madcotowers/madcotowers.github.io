@@ -1,0 +1,327 @@
+define(['dart_sdk', 'packages/assets_audio_player_web/web/abstract_web_player.dart'], (function load__packages__assets_audio_player_web__web__web_player_html_dart(dart_sdk, packages__assets_audio_player_web__web__abstract_web_player$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const _js_helper = dart_sdk._js_helper;
+  const html = dart_sdk.html;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const abstract_web_player = packages__assets_audio_player_web__web__abstract_web_player$46dart.web__abstract_web_player;
+  var web_player_html = Object.create(dart.library);
+  var $play = dartx.play;
+  var $onEnded = dartx.onEnded;
+  var $onCanPlay = dartx.onCanPlay;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    numL: () => (T.numL = dart.constFn(dart.legacy(core.num)))(),
+    IdentityMapOfStringL$numL: () => (T.IdentityMapOfStringL$numL = dart.constFn(_js_helper.IdentityMap$(T.StringL(), T.numL())))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    dynamicToboolL: () => (T.dynamicToboolL = dart.constFn(dart.fnType(T.boolL(), [dart.dynamic])))(),
+    FutureOfboolL: () => (T.FutureOfboolL = dart.constFn(async.Future$(T.boolL())))(),
+    FutureLOfboolL: () => (T.FutureLOfboolL = dart.constFn(dart.legacy(T.FutureOfboolL())))(),
+    VoidToFutureLOfboolL: () => (T.VoidToFutureLOfboolL = dart.constFn(dart.fnType(T.FutureLOfboolL(), [])))(),
+    EventL: () => (T.EventL = dart.constFn(dart.legacy(html.Event)))(),
+    EventLToNull: () => (T.EventLToNull = dart.constFn(dart.fnType(core.Null, [T.EventL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var C = [];
+  var I = ["package:assets_audio_player_web/web/web_player_html.dart"];
+  var forwardHandler = dart.privateName(web_player_html, "WebPlayerHtml.forwardHandler");
+  var _onEndListener = dart.privateName(web_player_html, "_onEndListener");
+  var _onCanPlayListener = dart.privateName(web_player_html, "_onCanPlayListener");
+  var _audioElement = dart.privateName(web_player_html, "_audioElement");
+  var _isPlaying = dart.privateName(web_player_html, "_isPlaying");
+  var __listenPosition = dart.privateName(web_player_html, "__listenPosition");
+  var _durationMs = dart.privateName(web_player_html, "_durationMs");
+  var _position = dart.privateName(web_player_html, "_position");
+  var _clearListeners = dart.privateName(web_player_html, "_clearListeners");
+  var _listenPosition = dart.privateName(web_player_html, "_listenPosition");
+  var _stopListenPosition = dart.privateName(web_player_html, "_stopListenPosition");
+  web_player_html.WebPlayerHtml = class WebPlayerHtml extends abstract_web_player.WebPlayer {
+    get forwardHandler() {
+      return this[forwardHandler];
+    }
+    set forwardHandler(value) {
+      this[forwardHandler] = value;
+    }
+    [_clearListeners]() {
+      let t0, t0$;
+      t0 = this[_onEndListener];
+      t0 == null ? null : t0.cancel();
+      t0$ = this[_onCanPlayListener];
+      t0$ == null ? null : t0$.cancel();
+    }
+    get volume() {
+      let t0, t0$;
+      t0$ = (t0 = this[_audioElement], t0 == null ? null : t0.volume);
+      return t0$ == null ? 1.0 : t0$;
+    }
+    set volume(volume) {
+      let t0;
+      t0 = this[_audioElement];
+      t0 == null ? null : t0.volume = volume;
+      this.channel.invokeMethod(dart.dynamic, abstract_web_player.WebPlayer.methodVolume, volume);
+    }
+    get playSpeed() {
+      let t0, t0$;
+      t0$ = (t0 = this[_audioElement], t0 == null ? null : t0.playbackRate);
+      return t0$ == null ? 1.0 : t0$;
+    }
+    set playSpeed(playSpeed) {
+      let t0;
+      t0 = this[_audioElement];
+      t0 == null ? null : t0.playbackRate = playSpeed;
+      this.channel.invokeMethod(dart.dynamic, abstract_web_player.WebPlayer.methodPlaySpeed, playSpeed);
+    }
+    get isPlaying() {
+      return this[_isPlaying];
+    }
+    set isPlaying(value) {
+      this[_isPlaying] = value;
+      this.channel.invokeMethod(dart.dynamic, abstract_web_player.WebPlayer.methodIsPlaying, value);
+      if (dart.test(value)) {
+        this[_listenPosition]();
+      } else {
+        this[_stopListenPosition]();
+      }
+    }
+    get currentPosition() {
+      return this[_audioElement].currentTime;
+    }
+    [_listenPosition]() {
+      return async.async(dart.void, (function* _listenPosition() {
+        this[__listenPosition] = true;
+        async.Future.doWhile(dart.fn(() => {
+          let durationMs = dart.notNull(this[_audioElement].duration) * 1000;
+          if (durationMs !== this[_durationMs]) {
+            this[_durationMs] = durationMs;
+            this.channel.invokeMethod(dart.dynamic, abstract_web_player.WebPlayer.methodCurrent, new (T.IdentityMapOfStringL$numL()).from(["totalDurationMs", durationMs]));
+          }
+          if (this[_position] != this.currentPosition) {
+            this[_position] = this.currentPosition;
+            let positionMs = dart.notNull(this.currentPosition) * 1000;
+            this.channel.invokeMethod(dart.dynamic, abstract_web_player.WebPlayer.methodPosition, positionMs);
+          }
+          return async.Future.delayed(new core.Duration.new({milliseconds: 200})).then(T.boolL(), dart.fn(value => this[__listenPosition], T.dynamicToboolL()));
+        }, T.VoidToFutureLOfboolL()));
+      }).bind(this));
+    }
+    [_stopListenPosition]() {
+      this[__listenPosition] = false;
+    }
+    play() {
+      let t0;
+      if (this[_audioElement] != null) {
+        this.isPlaying = true;
+        t0 = this.forwardHandler;
+        t0 == null ? null : t0.stop();
+        this[_audioElement][$play]();
+      }
+    }
+    pause() {
+      let t0;
+      if (this[_audioElement] != null) {
+        this.isPlaying = false;
+        t0 = this.forwardHandler;
+        t0 == null ? null : t0.stop();
+        this[_audioElement].pause();
+      }
+    }
+    stop() {
+      let t0;
+      t0 = this.forwardHandler;
+      t0 == null ? null : t0.stop();
+      this.forwardHandler = null;
+      this[_clearListeners]();
+      if (this[_audioElement] != null) {
+        this.isPlaying = false;
+        this.pause();
+        this[_audioElement].currentTime = 0;
+        this.channel.invokeMethod(dart.dynamic, abstract_web_player.WebPlayer.methodPosition, 0);
+      }
+    }
+    open(opts) {
+      let path = opts && 'path' in opts ? opts.path : null;
+      let audioType = opts && 'audioType' in opts ? opts.audioType : null;
+      let volume = opts && 'volume' in opts ? opts.volume : null;
+      let seek = opts && 'seek' in opts ? opts.seek : null;
+      let autoStart = opts && 'autoStart' in opts ? opts.autoStart : null;
+      let playSpeed = opts && 'playSpeed' in opts ? opts.playSpeed : null;
+      let networkHeaders = opts && 'networkHeaders' in opts ? opts.networkHeaders : null;
+      return async.async(dart.void, (function* open() {
+        this.stop();
+        this[_durationMs] = null;
+        this[_position] = null;
+        this[_audioElement] = html.AudioElement.new(this.findAssetPath(path, audioType));
+        this[_onEndListener] = this[_audioElement][$onEnded].listen(dart.fn(event => {
+          this.channel.invokeMethod(dart.dynamic, abstract_web_player.WebPlayer.methodFinished, true);
+        }, T.EventLToNull()));
+        this[_onCanPlayListener] = this[_audioElement][$onCanPlay].listen(dart.fn(event => {
+          let t0, t0$;
+          if (dart.test(autoStart)) {
+            this.play();
+          }
+          this.volume = volume;
+          let durationMs = dart.notNull(this[_audioElement].duration) * 1000;
+          if (durationMs !== this[_durationMs]) {
+            this[_durationMs] = durationMs;
+            this.channel.invokeMethod(dart.dynamic, abstract_web_player.WebPlayer.methodCurrent, new (T.IdentityMapOfStringL$numL()).from(["totalDurationMs", durationMs]));
+          }
+          if (seek != null) {
+            this.seek({to: seek});
+          }
+          if (playSpeed != null) {
+            t0 = playSpeed;
+            dart.dsend(this, 'playSpeed', [t0]);
+          }
+          t0$ = this[_onCanPlayListener];
+          t0$ == null ? null : t0$.cancel();
+          this[_onCanPlayListener] = null;
+        }, T.EventLToNull()));
+      }).bind(this));
+    }
+    seek(opts) {
+      let t0;
+      let to = opts && 'to' in opts ? opts.to : null;
+      core.print("Final Seeking To " + dart.str(to) + " from " + dart.str(this[_audioElement].currentTime));
+      if (this[_audioElement] != null && to != null) {
+        let toInSeconds = dart.notNull(to) / 1000;
+        t0 = this[_audioElement];
+        t0 == null ? null : t0.currentTime = toInSeconds;
+      }
+    }
+    loopSingleAudio(loop) {
+      let t0;
+      t0 = this[_audioElement];
+      t0 == null ? null : t0.loop = loop;
+    }
+    seekBy(opts) {
+      let by = opts && 'by' in opts ? opts.by : null;
+      let current = this.currentPosition;
+      let to = dart.notNull(current) + dart.notNull(by);
+      this.seek({to: to});
+    }
+    forwardRewind(speed) {
+      this.pause();
+      this.channel.invokeMethod(dart.dynamic, abstract_web_player.WebPlayer.methodForwardRewindSpeed, speed);
+      if (this.forwardHandler != null) {
+        this.forwardHandler.stop();
+      }
+      this.forwardHandler = new web_player_html.ForwardHandler.new();
+      this[_listenPosition]();
+      this.forwardHandler.start(this, speed);
+    }
+  };
+  (web_player_html.WebPlayerHtml.new = function(opts) {
+    let channel = opts && 'channel' in opts ? opts.channel : null;
+    this[_onEndListener] = null;
+    this[_onCanPlayListener] = null;
+    this[_audioElement] = null;
+    this[_isPlaying] = false;
+    this[__listenPosition] = false;
+    this[_durationMs] = null;
+    this[_position] = null;
+    this[forwardHandler] = null;
+    web_player_html.WebPlayerHtml.__proto__.new.call(this, {channel: channel});
+    ;
+  }).prototype = web_player_html.WebPlayerHtml.prototype;
+  dart.addTypeTests(web_player_html.WebPlayerHtml);
+  dart.addTypeCaches(web_player_html.WebPlayerHtml);
+  dart.setMethodSignature(web_player_html.WebPlayerHtml, () => ({
+    __proto__: dart.getMethods(web_player_html.WebPlayerHtml.__proto__),
+    [_clearListeners]: dart.fnType(dart.void, []),
+    [_listenPosition]: dart.fnType(dart.void, []),
+    [_stopListenPosition]: dart.fnType(dart.void, []),
+    play: dart.fnType(dart.void, []),
+    pause: dart.fnType(dart.void, []),
+    stop: dart.fnType(dart.void, []),
+    open: dart.fnType(dart.legacy(async.Future$(dart.void)), [], {audioType: dart.legacy(core.String), autoStart: dart.legacy(core.bool), networkHeaders: dart.legacy(core.Map), path: dart.legacy(core.String), playSpeed: dart.legacy(core.double), seek: dart.legacy(core.double), volume: dart.legacy(core.double)}, {}),
+    seek: dart.fnType(dart.void, [], {to: dart.legacy(core.double)}, {}),
+    loopSingleAudio: dart.fnType(dart.void, [dart.legacy(core.bool)]),
+    seekBy: dart.fnType(dart.void, [], {by: dart.legacy(core.double)}, {}),
+    forwardRewind: dart.fnType(dart.void, [dart.legacy(core.double)])
+  }));
+  dart.setGetterSignature(web_player_html.WebPlayerHtml, () => ({
+    __proto__: dart.getGetters(web_player_html.WebPlayerHtml.__proto__),
+    volume: dart.dynamic,
+    playSpeed: dart.dynamic,
+    isPlaying: dart.dynamic,
+    currentPosition: dart.legacy(core.double)
+  }));
+  dart.setSetterSignature(web_player_html.WebPlayerHtml, () => ({
+    __proto__: dart.getSetters(web_player_html.WebPlayerHtml.__proto__),
+    volume: dart.legacy(core.double),
+    playSpeed: dart.legacy(core.double),
+    isPlaying: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(web_player_html.WebPlayerHtml, I[0]);
+  dart.setFieldSignature(web_player_html.WebPlayerHtml, () => ({
+    __proto__: dart.getFields(web_player_html.WebPlayerHtml.__proto__),
+    [_onEndListener]: dart.fieldType(dart.legacy(async.StreamSubscription)),
+    [_onCanPlayListener]: dart.fieldType(dart.legacy(async.StreamSubscription)),
+    [_audioElement]: dart.fieldType(dart.legacy(html.AudioElement)),
+    [_isPlaying]: dart.fieldType(dart.legacy(core.bool)),
+    [__listenPosition]: dart.fieldType(dart.legacy(core.bool)),
+    [_durationMs]: dart.fieldType(dart.legacy(core.double)),
+    [_position]: dart.fieldType(dart.legacy(core.double)),
+    forwardHandler: dart.fieldType(dart.legacy(web_player_html.ForwardHandler))
+  }));
+  var _isEnabled = dart.privateName(web_player_html, "_isEnabled");
+  web_player_html.ForwardHandler = class ForwardHandler extends core.Object {
+    start(player, speed) {
+      return async.async(dart.void, (function* start() {
+        this[_isEnabled] = true;
+        while (dart.test(this[_isEnabled])) {
+          player.seekBy({by: dart.notNull(speed) * dart.notNull(web_player_html.ForwardHandler._timelapse)});
+          yield async.Future.delayed(new core.Duration.new({milliseconds: web_player_html.ForwardHandler._timelapse}));
+        }
+      }).bind(this));
+    }
+    stop() {
+      this[_isEnabled] = false;
+    }
+  };
+  (web_player_html.ForwardHandler.new = function() {
+    this[_isEnabled] = false;
+    ;
+  }).prototype = web_player_html.ForwardHandler.prototype;
+  dart.addTypeTests(web_player_html.ForwardHandler);
+  dart.addTypeCaches(web_player_html.ForwardHandler);
+  dart.setMethodSignature(web_player_html.ForwardHandler, () => ({
+    __proto__: dart.getMethods(web_player_html.ForwardHandler.__proto__),
+    start: dart.fnType(dart.void, [dart.legacy(web_player_html.WebPlayerHtml), dart.legacy(core.double)]),
+    stop: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(web_player_html.ForwardHandler, I[0]);
+  dart.setFieldSignature(web_player_html.ForwardHandler, () => ({
+    __proto__: dart.getFields(web_player_html.ForwardHandler.__proto__),
+    [_isEnabled]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.defineLazy(web_player_html.ForwardHandler, {
+    /*web_player_html.ForwardHandler._timelapse*/get _timelapse() {
+      return 300;
+    }
+  }, true);
+  dart.trackLibraries("packages/assets_audio_player_web/web/web_player_html.dart", {
+    "package:assets_audio_player_web/web/web_player_html.dart": web_player_html
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["web_player_html.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../packages/assets_audio_player_web/web/web_player_html.dart.lib.js"}');
+  // Exports:
+  return {
+    web__web_player_html: web_player_html
+  };
+}));
+
+//# sourceMappingURL=web_player_html.dart.lib.js.map
