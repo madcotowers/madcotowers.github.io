@@ -16,7 +16,7 @@ class TownshipCarousel extends StatelessWidget {
     'New Douglas-Leef',
     'New Fort Russel',
     'Omphegent - Olive',
-    'The Gentile Giant',
+    'The Gentle Giant',
     'Venice'
   ];
 
