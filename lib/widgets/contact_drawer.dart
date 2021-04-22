@@ -31,11 +31,11 @@ class ContactDrawer extends StatelessWidget {
               ),
               Text(
                 "Email: **************",
-                style: TextStyle(fontSize: 10, color: Colors.white),
+                style: TextStyle(fontSize: 18, color: Colors.white),
               ),
               Text(
                 "Phone: ***-***-****",
-                style: TextStyle(fontSize: 10, color: Colors.white),
+                style: TextStyle(fontSize: 18, color: Colors.white),
               ),
               SizedBox(
                 height: 20,
