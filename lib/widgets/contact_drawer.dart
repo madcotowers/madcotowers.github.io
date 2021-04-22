@@ -13,7 +13,7 @@ class ContactDrawer extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(20.0)),
         child: Container(
-          color: customColor,
+          color: Colors.black45,
           width: width,
           height: 35 + (height / 3),
           child: Column(
@@ -31,11 +31,11 @@ class ContactDrawer extends StatelessWidget {
               ),
               Text(
                 "Email: **************",
-                style: TextStyle(fontSize: 10, color: Colors.white),
+                style: TextStyle(fontSize: 18, color: Colors.white),
               ),
               Text(
                 "Phone: ***-***-****",
-                style: TextStyle(fontSize: 10, color: Colors.white),
+                style: TextStyle(fontSize: 18, color: Colors.white),
               ),
               SizedBox(
                 height: 20,
