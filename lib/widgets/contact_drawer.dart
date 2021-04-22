@@ -13,7 +13,7 @@ class ContactDrawer extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(20.0)),
         child: Container(
-          color: customColor,
+          color: Colors.black45,
           width: width,
           height: 35 + (height / 3),
           child: Column(
