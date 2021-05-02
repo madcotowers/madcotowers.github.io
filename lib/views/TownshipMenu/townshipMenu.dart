@@ -67,8 +67,8 @@ class TownshipMenu extends StatelessWidget {
                                       context,
                                       new MaterialPageRoute(
                                           builder: (context) => MediaPlayer(
-                                                // chapter:
-                                                //     chapters[index].toString(),
+                                              // chapter:
+                                              //     chapters[index].toString(),
                                               )));
                                   print(chapters[index].toString() +
                                       " clicked"); // navigate back, pass in navigation boolean
